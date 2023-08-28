@@ -1,0 +1,13 @@
+// page module
+.main {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  margin: 1rem auto;
+
+  hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 2rem 0;
+  }
+}
