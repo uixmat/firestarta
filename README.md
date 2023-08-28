@@ -1,24 +1,22 @@
+# NextAuth with OAuth & Route Handlers 
+This is a very simple repository showing you how to render session data using NextAuth OAuth providers (Github in this case) both on server and client side in the app directory. 
+
 ## Dependencies
 
 - Next.js
+- NextAuth
 - Typescript
 - Sass
-- NextAuth
 
 ## Setup
 
-Install dependencies:
-
-```bash
-yarn install
-```
 Create a `.env.local` file and generate NextAuth secret using:
 
 ```bash
 openssl rand -base64 32
 ```
 
-## `.env.local` 
+### `.env.local` 
 
 ```
 # Next Auth
