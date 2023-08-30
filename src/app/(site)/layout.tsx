@@ -3,7 +3,7 @@ import { NextAuthProvider } from "./providers";
 import "./globals.scss";
 import styles from "./page.module.scss";
 import type { Metadata } from "next";
-import { Header } from "@/components/Header";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "NextAuth OAuth Example",

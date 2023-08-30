@@ -1,8 +1,10 @@
+import { getServerSession } from "next-auth";
 import Link from "next/link";
 import { GithubButton } from "@/components/GithubButton";
 import { SignOutButton } from "@/components/SignOutButton";
 
-export const Header = () => {
+export default async function Header() {
+  const session = await getServerSession();
   return (
     <header>
       <h1>NextAuth</h1>
@@ -15,12 +17,13 @@ export const Header = () => {
       </p>
 
       <nav>
-        <GithubButton />
-        <SignOutButton />
+        {!session && <GithubButton />}
+        {session && <SignOutButton />}
         <Link href="/">Home</Link>
         <Link href="/users">Users</Link>
+        {session && <Link href="/account">Account</Link>}
       </nav>
       <hr />
     </header>
   );
-};
+}
