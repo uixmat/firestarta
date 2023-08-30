@@ -5,18 +5,29 @@ html {
   font-size: 16px;
 }
 
-button {
-  outline: none;
-  border: none;
-  appearance: none;
-  padding: 1rem;
-  margin-right: 1rem;
-  font-weight: 600;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  background: #eee;
-  &:hover {
-    background: #ddd;
+
+
+nav {
+  display: flex;
+  gap: .5rem;
+  width: 100%;
+  align-items: center;
+  a, button {
+    outline: none;
+    border: none;
+    appearance: none;
+    padding: 1rem;
+    margin-right: 1rem;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    color: #000;
+    background: #eee;
+    &:hover {
+      background: #ddd;
+      text-decoration: none;
+    }
   }
 }
 

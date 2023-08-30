@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getUsers } from "@/lib/prisma/users";
 
 import styles from "../page.module.scss";
@@ -21,7 +22,7 @@ export async function UsersPage() {
       <ul>
         {users?.map((user: any, id: number) => (
           <li key={user.id}>
-            User: <b>{user.name}</b>
+            <Link href={`/users/${user.id}`}>{user.name}</Link>
           </li>
         ))}
       </ul>

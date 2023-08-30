@@ -1,14 +1,10 @@
-import ServerSession from "@/components/ServerSession";
-import ClientSession from "@/components/ClientSession";
-
+import Link from "next/link";
 import { GithubButton } from "@/components/GithubButton";
 import { SignOutButton } from "@/components/SignOutButton";
 
-import styles from "./page.module.scss";
-
-export default function Home() {
+export const Header = () => {
   return (
-    <main className={styles.main}>
+    <header>
       <h1>NextAuth</h1>
       <p>
         <a href="https://next-auth.js.org/getting-started/example">NextAuth</a>{" "}
@@ -17,12 +13,14 @@ export default function Home() {
         with both server and client side rendered session data while using
         Next.js 13 <b>app directory</b> and <b>Route Handlers</b>.
       </p>
-      <GithubButton />
-      <SignOutButton />
+
+      <nav>
+        <GithubButton />
+        <SignOutButton />
+        <Link href="/">Home</Link>
+        <Link href="/users">Users</Link>
+      </nav>
       <hr />
-      <ServerSession />
-      <hr />
-      <ClientSession />
-    </main>
+    </header>
   );
-}
+};
