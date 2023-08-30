@@ -45,11 +45,12 @@ model VerificationToken {
 }
 
 model User {
-  id       String    @id @default(auto()) @map("_id") @db.ObjectId
-  name     String?
-  email    String    @unique
-  image    String?
-  imageUrl String?
-  accounts Account[]
-  sessions Session[]
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  imageUrl      String?
+  accounts      Account[]
+  sessions      Session[]
 }
