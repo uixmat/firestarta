@@ -18,6 +18,16 @@ export async function createUser(user: any) {
   }
 }
 
+export async function deleteUser(email: any) {
+  try {
+    await prisma.user.delete({
+      where: { email },
+    });
+  } catch (error) {
+    return { error }
+  }
+}
+
 export async function getUserById(id: any) {
   try {
     const user = await prisma.user.findUnique({
@@ -26,5 +36,18 @@ export async function getUserById(id: any) {
     return { user }
   } catch (error) {
     return { error }
+  }
+}
+
+export async function getUserIdByEmail(email: any) {
+  try {
+    const user = await prisma.user.findUnique({ where: { email } });
+    if (user) {
+      return user.id;
+    } else {
+      return "User not found";
+    }
+  } catch (error) {
+    return { error };
   }
 }

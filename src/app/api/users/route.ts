@@ -2,7 +2,7 @@
 // Docs: https://nextjs.org/docs/app/building-your-application/routing/route-handlers
 
 import { NextResponse, NextRequest } from 'next/server'
-import { createUser, getUsers } from "@/lib/prisma/users"
+import { createUser, getUsers, deleteUser } from "@/lib/prisma/users"
 
 // Exported GET request
 export async function GET() {

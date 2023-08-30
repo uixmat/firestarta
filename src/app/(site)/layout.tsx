@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "NextAuth OAuth Example",
+  title: "NextAuth OAuth with Prisma and MongoDB",
   description: "A simple example of how to use NextAuth with OAuth providers.",
 };
 
