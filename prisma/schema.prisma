@@ -51,6 +51,7 @@ model User {
   emailVerified DateTime?
   image         String?
   imageUrl      String?
+  jobTitle      String?
   accounts      Account[]
   sessions      Session[]
 }
