@@ -51,11 +51,11 @@ export async function getUserById(id: any) {
   }
 }
 
-export async function getUserIdByEmail(email: any) {
+export async function getUserByEmail(email: any) {
   try {
     const user = await prisma.user.findUnique({ where: { email } });
     if (user) {
-      return user.id;
+      return user;
     } else {
       return "User not found";
     }

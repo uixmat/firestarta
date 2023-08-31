@@ -1,5 +1,6 @@
 "use client";
 
+import { useSession } from "next-auth/react";
 import { useState } from "react";
 interface Props {
   data: any;
@@ -8,6 +9,8 @@ interface Props {
 export const AccountForm = ({ data }: Props) => {
   const [name, setName] = useState(data.user.name || "");
   const [jobTitle, setJobTitle] = useState("");
+
+  const { data: session, update } = useSession();
 
   const updateUser = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -31,8 +34,19 @@ export const AccountForm = ({ data }: Props) => {
       console.log("HTTP Response: ", response);
       if (response.ok) {
         const result = await response.json();
-        console.log("Account updated");
         console.log("Server says: ", result);
+        console.log("Session before update: ", session);
+        if (session) {
+          await update({
+            ...session,
+            user: {
+              ...session.user,
+              name: result.name,
+              jobTitle: result.jobTitle,
+            },
+          });
+          console.log("Session after update: ", session);
+        }
       }
     } catch (error) {
       console.error("Error:", error);
@@ -54,7 +68,9 @@ export const AccountForm = ({ data }: Props) => {
           type="text"
           value={jobTitle}
           onChange={(e) => setJobTitle(e.target.value)}
-          placeholder="Job title"
+          placeholder={
+            data.user.jobTitle ? data.user.jobTitle : "Add job title"
+          }
         />
       </div>
       <div>

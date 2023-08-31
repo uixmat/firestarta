@@ -1,3 +1,6 @@
+// Next.js Route Handlers
+// Docs: https://nextjs.org/docs/app/building-your-application/routing/route-handlers
+
 import { NextResponse, NextRequest } from 'next/server'
 import { deleteUser, updateUser } from "@/lib/prisma/users"
 
