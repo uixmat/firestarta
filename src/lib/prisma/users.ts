@@ -18,6 +18,18 @@ export async function createUser(user: any) {
   }
 }
 
+export async function updateUser(email: any, data: any) {
+  try {
+    await prisma.user.update({
+      where: { email },
+      data: data,
+    });
+    return { data }
+  } catch (error) {
+    return { error }
+  }
+}
+
 export async function deleteUser(email: any) {
   try {
     await prisma.user.delete({

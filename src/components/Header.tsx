@@ -21,6 +21,7 @@ export default async function Header() {
         {session && <SignOutButton />}
         <Link href="/">Home</Link>
         <Link href="/users">Users</Link>
+        <Link href="/jobs">Jobs</Link>
         {session && <Link href="/account">Account</Link>}
       </nav>
       <hr />
