@@ -17,7 +17,10 @@ export default async function AccountPage() {
     <>
       <h1>Your account</h1>
       <p>
-        <i>Data from next auth server session</i>
+        <i>
+          Data from next auth server session using{" "}
+          <code>getServerSession()</code>
+        </i>
       </p>
       <ul>
         <li>Welcome back {session?.user?.name}</li>

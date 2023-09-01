@@ -3,6 +3,7 @@ import GithubProvider from 'next-auth/providers/github'
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { Adapter, AdapterUser } from "next-auth/adapters";
 import prisma from "@/lib/prisma";
+import { getUserById } from "@/lib/prisma/users"; 
 
 interface User extends AdapterUser {
   jobTitle?: string;
@@ -11,6 +12,10 @@ interface User extends AdapterUser {
 export const authOptions:NextAuthOptions = {
   adapter: PrismaAdapter(prisma) as Adapter,
   secret: process.env.NEXTAUTH_SECRET,
+  debug: true,
+  session: {
+    strategy: "jwt",
+  },
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID as string,
@@ -18,26 +23,13 @@ export const authOptions:NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async jwt({token, user, session, trigger}) {
-      if(trigger === "update") {
-        const typedUser = user as User;
-        return {
-          ...token,
-          ...session,
-          jobTitle: typedUser.jobTitle,
-        }
+    async jwt({ token, trigger, session }) {
+      if (trigger === "update" && session?.name) {
+        token.name = session
       }
-      return token;
-    },
-    async session({session, token}) {
-      session.user = token as any;
-      return session;
-    },
+      return token
+    }
   },
-  session: {
-    strategy: "jwt",
-  },
-  debug: true,
 }
 
 const handler = NextAuth(authOptions);
