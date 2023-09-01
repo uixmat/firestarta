@@ -22,7 +22,16 @@ export const authOptions:NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async jwt({ token, trigger, session }) {
+    async jwt({ token, trigger, session, account, user }) {
+      // Initial sign-in
+      if (account && user) {
+        const userFromDb = await prisma.user.findUnique({
+          where: { email: user.email as string },
+        });
+        if (userFromDb?.jobTitle) {
+          token.jobTitle = userFromDb.jobTitle;
+        }
+      }
       if (trigger === 'update' && session?.name) {
         token.name = session.name;
       }
