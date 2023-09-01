@@ -1,16 +1,20 @@
-import NextAuth, { NextAuthOptions, Session } from "next-auth";
+import NextAuth, { NextAuthOptions, Session as NextAuthSession, User } from "next-auth";
 import GithubProvider from 'next-auth/providers/github'
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import { Adapter, AdapterUser } from "next-auth/adapters";
+import { Adapter } from "next-auth/adapters";
 import prisma from "@/lib/prisma";
 
-interface User extends AdapterUser {
+interface CustomUser extends User {
   jobTitle?: string;
 }
 
 export const authOptions:NextAuthOptions = {
   adapter: PrismaAdapter(prisma) as Adapter,
   secret: process.env.NEXTAUTH_SECRET,
+  debug: true,
+  session: {
+    strategy: "jwt",
+  },
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID as string,
@@ -18,26 +22,32 @@ export const authOptions:NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async jwt({token, user, session, trigger}) {
-      if(trigger === "update") {
-        const typedUser = user as User;
-        return {
-          ...token,
-          ...session,
-          jobTitle: typedUser.jobTitle,
+    async jwt({ token, trigger, session, account, user }) {
+      // Initial sign-in
+      if (account && user) {
+        const userFromDb = await prisma.user.findUnique({
+          where: { email: user.email as string },
+        });
+        if (userFromDb?.jobTitle) {
+          token.jobTitle = userFromDb.jobTitle;
         }
+      }
+      // Triggers
+      if (trigger === 'update' && session?.name) {
+        token.name = session.name;
+      }
+      if (trigger === 'update' && session?.jobTitle) {
+        token.jobTitle = session.jobTitle;
       }
       return token;
     },
     async session({session, token}) {
-      session.user = token as any;
+      if (token?.jobTitle) {
+        (session.user as CustomUser).jobTitle = token.jobTitle as string;
+      }
       return session;
     },
   },
-  session: {
-    strategy: "jwt",
-  },
-  debug: true,
 }
 
 const handler = NextAuth(authOptions);

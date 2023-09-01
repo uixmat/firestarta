@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 
 import { DeleteAccountButton } from "@/components/DeleteAccountButton";
 import { AccountForm } from "@/components/AccountForm";
-import { DatabaseUser } from "@/components/DatabaseUser";
+import ClientSession from "@/components/ClientSession";
 
 export default async function AccountPage() {
   const session = await getServerSession(authOptions);
@@ -17,14 +17,15 @@ export default async function AccountPage() {
     <>
       <h1>Your account</h1>
       <p>
-        <i>Data from next auth server session</i>
+        <i>
+          Data from next auth server session using{" "}
+          <code>getServerSession()</code>
+        </i>
       </p>
       <ul>
         <li>Welcome back {session?.user?.name}</li>
         <li>Your email: {session?.user?.email}</li>
       </ul>
-
-      <DatabaseUser email={session?.user?.email} />
 
       <hr />
       <h2>Update profile in database</h2>
