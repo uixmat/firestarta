@@ -1,16 +1,19 @@
 "use client";
 
-import { useSession } from "next-auth/react";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+
 interface Props {
   data: any;
 }
 
 export const AccountForm = ({ data }: Props) => {
   const [name, setName] = useState(data.user.name || "");
-  const [jobTitle, setJobTitle] = useState("");
+  const [jobTitle, setJobTitle] = useState(data.user.jobTitle || "");
 
   const { data: session, update } = useSession();
+  const router = useRouter();
 
   const updateUser = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -27,10 +30,10 @@ export const AccountForm = ({ data }: Props) => {
       );
       console.log("HTTP Response: ", response);
       if (response.ok) {
-        const result = await response.json();
-        console.log("Server says: ", result);
         await update({ name, jobTitle });
-        console.log("Session updated", session);
+        router.refresh();
+      } else {
+        console.log("Failed to update user");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -39,12 +42,15 @@ export const AccountForm = ({ data }: Props) => {
 
   return (
     <form onSubmit={updateUser}>
+      <ul>
+        <li>Name: {session?.user?.name}</li>
+        <li>Job: {session?.user?.jobTitle}</li>
+      </ul>
       <div>
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder={data.user.name}
         />
       </div>
       <div>
@@ -52,9 +58,7 @@ export const AccountForm = ({ data }: Props) => {
           type="text"
           value={jobTitle}
           onChange={(e) => setJobTitle(e.target.value)}
-          placeholder={
-            data.user.jobTitle ? data.user.jobTitle : "Add job title"
-          }
+          placeholder="Add a job title"
         />
       </div>
       <div>

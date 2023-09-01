@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 
 import { DeleteAccountButton } from "@/components/DeleteAccountButton";
 import { AccountForm } from "@/components/AccountForm";
-import { DatabaseUser } from "@/components/DatabaseUser";
+import ClientSession from "@/components/ClientSession";
 
 export default async function AccountPage() {
   const session = await getServerSession(authOptions);
@@ -26,8 +26,6 @@ export default async function AccountPage() {
         <li>Welcome back {session?.user?.name}</li>
         <li>Your email: {session?.user?.email}</li>
       </ul>
-
-      <DatabaseUser email={session?.user?.email} />
 
       <hr />
       <h2>Update profile in database</h2>

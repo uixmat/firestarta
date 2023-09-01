@@ -1,10 +1,10 @@
-import NextAuth, { NextAuthOptions, Session } from "next-auth";
+import NextAuth, { NextAuthOptions, Session as NextAuthSession, User } from "next-auth";
 import GithubProvider from 'next-auth/providers/github'
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import { Adapter, AdapterUser } from "next-auth/adapters";
+import { Adapter } from "next-auth/adapters";
 import prisma from "@/lib/prisma";
 
-interface User extends AdapterUser {
+interface CustomUser extends User {
   jobTitle?: string;
 }
 
@@ -24,10 +24,19 @@ export const authOptions:NextAuthOptions = {
   callbacks: {
     async jwt({ token, trigger, session }) {
       if (trigger === 'update' && session?.name) {
-        token.name = session.name
+        token.name = session.name;
       }
-      return token
-    }
+      if (trigger === 'update' && session?.jobTitle) {
+        token.jobTitle = session.jobTitle;
+      }
+      return token;
+    },
+    async session({session, token}) {
+      if (token?.jobTitle) {
+        (session.user as CustomUser).jobTitle = token.jobTitle as string;
+      }
+      return session;
+    },
   },
 }
 
