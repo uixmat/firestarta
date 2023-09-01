@@ -32,6 +32,7 @@ export const authOptions:NextAuthOptions = {
           token.jobTitle = userFromDb.jobTitle;
         }
       }
+      // Triggers
       if (trigger === 'update' && session?.name) {
         token.name = session.name;
       }
