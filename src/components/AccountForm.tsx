@@ -15,7 +15,6 @@ export const AccountForm = ({ data }: Props) => {
   const updateUser = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      console.log("Sending request body: ", JSON.stringify({ name, jobTitle }));
       const response = await fetch(
         `http://localhost:3000/api/user/${data.user.email}`,
         {
@@ -30,16 +29,8 @@ export const AccountForm = ({ data }: Props) => {
       if (response.ok) {
         const result = await response.json();
         console.log("Server says: ", result);
-        console.log("Session before update: ", session);
-        if (session) {
-          await update({
-            ...session,
-            ...session.user,
-            name: result.name,
-            jobTitle: result.jobTitle,
-          });
-          console.log("Session after update: ", session);
-        }
+        await update({ name, jobTitle });
+        console.log("Session updated", session);
       }
     } catch (error) {
       console.error("Error:", error);
