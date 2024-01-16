@@ -16,6 +16,15 @@ export async function UsersPage() {
   }
 
   const users = response.users;
+  if (users.length === 0) {
+    return (
+      <main className={styles.main}>
+        <h1>No users</h1>
+        <p>There are currently no users to display.</p>
+      </main>
+    );
+  }
+
   return (
     <main className={styles.main}>
       <h1>Users from server side</h1>

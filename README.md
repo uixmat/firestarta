@@ -8,7 +8,7 @@ This is a very simple repository showing you how to render session data using Ne
 - Prisma
 - Typescript
 - Sass
-- MonogDB _(or any db of your choosing)_
+- Postgres
 
 ## Setup
 
@@ -27,6 +27,8 @@ NEXTAUTH_URL=http://localhost:3000
 
 GITHUB_SECRET=
 GITHUB_ID=
+
+DATABASE_URL=
 ```
 
 To setup Github visit [https://github.com/settings/apps](https://github.com/settings/apps) to create a new app. the callback URL should be: `[origin]/api/auth/callback/[provider]` as stated in the [NextAuth](https://next-auth.js.org/configuration/providers/oauth) documentation.
@@ -34,7 +36,7 @@ To setup Github visit [https://github.com/settings/apps](https://github.com/sett
 ## Getting Started
 
 ```bash
-npx prisma migrate
+npx prisma migrate dev --name init
 yarn dev
 ```
 
