@@ -2,7 +2,7 @@ import { NextAuthProvider } from "./providers";
 
 import "@/styles/globals.css";
 import type { Metadata } from "next";
-import Header from "@/components/Header";
+import Header from "@/components/core/header/Header";
 
 export const metadata: Metadata = {
   title: "NextAuth OAuth with Prisma and Postgres",
