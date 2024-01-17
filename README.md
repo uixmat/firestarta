@@ -1,4 +1,4 @@
-# NextAuth with OAuth & Route Handlers, Prisma and MonogoDB
+# NextAuth with OAuth & Route Handlers, Prisma, Postgres, Tailwind, shadcn/ui and Sass.
 This is a very simple repository showing you how to render session data using NextAuth OAuth providers (Github in this case) both on server and client side in the app directory. A user is created in MonogoDB by using Prisma ORM.
 
 ## Dependencies
