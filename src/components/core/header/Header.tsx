@@ -33,9 +33,9 @@ export default async function Header() {
           >
             Users
           </Link>
-          {!session && <GithubButton />}
         </nav>
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end gap-6 text-sm relative">
+          {!session && <GithubButton />}
           {session && (
             <DropdownMenu>
               <DropdownMenuTrigger className="outline-none ml-auto">
