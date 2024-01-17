@@ -1,8 +1,8 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
-import { GithubButton } from "@/components/GithubButton";
-import { SignOutButton } from "@/components/SignOutButton";
+import { GithubButton } from "./GithubButton";
+import { SignOutButton } from "./SignOutButton";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
