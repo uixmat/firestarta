@@ -1,8 +1,8 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import { DeleteAccountButton } from "@/components/DeleteAccountButton";
-import { AccountForm } from "@/components/AccountForm";
+import { DeleteAccountButton } from "./DeleteAccountButton";
+import { AccountForm } from "./AccountForm";
 import { Section } from "@/components/core/section/Section";
 import {
   Card,
