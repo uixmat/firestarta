@@ -12,6 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { UserRound, UserRoundCog } from "lucide-react";
 
 export default async function Header() {
   const session = await getServerSession(authOptions);
@@ -52,10 +53,18 @@ export default async function Header() {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                  <Link href="/account">Account</Link>
+                  <Link href="/account">
+                    <span className="flex gap-1 items-center">
+                      <UserRoundCog className="h-4" /> Account
+                    </span>
+                  </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Link href={`/users/${session.user.id}`}>Profile</Link>
+                  <Link href={`/users/${session.user.id}`}>
+                    <span className="flex gap-1 items-center">
+                      <UserRound className="h-4" /> Profile
+                    </span>
+                  </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <SignOutButton />
