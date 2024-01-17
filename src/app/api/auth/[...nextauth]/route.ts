@@ -25,6 +25,7 @@ export const authOptions:NextAuthOptions = {
     async jwt({ token, trigger, session, account, user }) {
       // Initial sign-in
       if (account && user) {
+        token.userId = user.id;
         const userFromDb = await prisma.user.findUnique({
           where: { email: user.email as string },
         });
@@ -42,6 +43,9 @@ export const authOptions:NextAuthOptions = {
       return token;
     },
     async session({session, token}) {
+      if (token?.userId) {
+        (session.user as CustomUser).id = token.userId as string;
+      }
       if (token?.jobTitle) {
         (session.user as CustomUser).jobTitle = token.jobTitle as string;
       }

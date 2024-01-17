@@ -55,7 +55,7 @@ export default async function Header() {
                   <Link href="/account">Account</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Link href="/account">Profile</Link>
+                  <Link href={`/users/${session.user.id}`}>Profile</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <SignOutButton />

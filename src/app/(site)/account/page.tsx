@@ -17,22 +17,19 @@ export default async function AccountPage() {
     <>
       <h1>Welcome back {session?.user?.name}</h1>
       <p>Your email: {session?.user?.email}</p>
-      <p>
-        <i>
-          Data from next auth server session using{" "}
-          <code>getServerSession()</code>
-        </i>
-      </p>
+      <p>Job title: {session?.user?.jobTitle}</p>
+      <p>User ID: {session?.user?.id}</p>
 
       <hr />
       <h2>Update profile in database</h2>
       <AccountForm data={session} />
 
       <hr />
-      <h2>Next Auth Server Session</h2>
+      <h2>NextAuth Server Session</h2>
       <pre>
         <code>{JSON.stringify(session, null, 2)}</code>
       </pre>
+
       <hr />
       <DeleteAccountButton email={session?.user?.email} />
     </>
