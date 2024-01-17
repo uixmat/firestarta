@@ -10,9 +10,10 @@ This repository serves as a starting point (or boilerplate) for any Next.js proj
 - Prisma
 - Postgres
 - Sass
-- Tailwind
+- Tailwindcss
 - shadcn/ui
 - Sonner toasts
+- Lucide icons
 
 ## Setup
 
