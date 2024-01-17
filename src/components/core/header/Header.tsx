@@ -14,6 +14,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { UserRound, UserRoundCog } from "lucide-react";
 
+import dynamic from "next/dynamic";
+const ThemeSwitcher = dynamic(() => import("../theme/ThemeSwitch"), {
+  ssr: false,
+});
+
 export default async function Header() {
   const session = await getServerSession(authOptions);
 
@@ -34,7 +39,8 @@ export default async function Header() {
             Users
           </Link>
         </nav>
-        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end gap-6 text-sm relative">
+        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end gap-2 text-sm relative">
+          <ThemeSwitcher />
           {!session && <GithubButton />}
           {session && (
             <DropdownMenu>

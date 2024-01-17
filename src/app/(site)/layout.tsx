@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/sonner";
 import Header from "@/components/core/header/Header";
+import { ThemeProvider } from "@/components/core/provider/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "NextAuth OAuth with Prisma and Postgres",
@@ -16,14 +17,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className="min-h-screen bg-background font-sans antialiased">
-        <NextAuthProvider>
-          <Header />
-          {children}
-          <Toaster position="top-center" />
-        </NextAuthProvider>
-      </body>
+    <html lang="en">
+      <ThemeProvider>
+        <body className="min-h-screen bg-background font-sans antialiased">
+          <NextAuthProvider>
+            <Header />
+            {children}
+            <Toaster position="top-center" />
+          </NextAuthProvider>
+        </body>
+      </ThemeProvider>
     </html>
   );
 }
