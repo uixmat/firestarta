@@ -17,7 +17,7 @@ export default async function Header() {
   const session = await getServerSession(authOptions);
 
   return (
-    <header className="sticky top-0 z-40 border-b flex w-full backdrop-blur-xl transition-all bg-background">
+    <header className="fixed top-0 z-40 border-b flex w-full backdrop-blur-xl transition-all bg-background">
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <nav className="flex items-center gap-6 text-sm">
           <Link

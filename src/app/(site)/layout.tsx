@@ -19,9 +19,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-background font-sans antialiased">
         <NextAuthProvider>
           <Header />
-          <main>
-            <div className="container">{children}</div>
-          </main>
+          {children}
         </NextAuthProvider>
       </body>
     </html>

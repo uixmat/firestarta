@@ -1,10 +1,16 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-
 import { DeleteAccountButton } from "@/components/DeleteAccountButton";
 import { AccountForm } from "@/components/AccountForm";
-import ClientSession from "@/components/ClientSession";
+import { Section } from "@/components/core/section/Section";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export default async function AccountPage() {
   const session = await getServerSession(authOptions);
@@ -14,24 +20,50 @@ export default async function AccountPage() {
   }
 
   return (
-    <>
-      <h1>Welcome back {session?.user?.name}</h1>
-      <p>Your email: {session?.user?.email}</p>
-      <p>Job title: {session?.user?.jobTitle}</p>
-      <p>User ID: {session?.user?.id}</p>
+    <div className="container py-20">
+      <Section>
+        <Card>
+          <CardHeader>
+            <CardTitle>Your account</CardTitle>
+            <CardDescription>{session?.user?.email}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>{session?.user?.name}</p>
+            <p>{session?.user?.jobTitle}</p>
+            <code className="text-xs">{session?.user?.id}</code>
+          </CardContent>
+        </Card>
+      </Section>
 
-      <hr />
-      <h2>Update profile in database</h2>
-      <AccountForm data={session} />
+      <Section>
+        <Card>
+          <CardHeader>
+            <CardTitle>Edit information</CardTitle>
+            <CardDescription>{session?.user?.email}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <AccountForm data={session} />
+          </CardContent>
+        </Card>
 
-      <hr />
-      <h2>NextAuth Server Session</h2>
-      <pre>
-        <code>{JSON.stringify(session, null, 2)}</code>
-      </pre>
+        {/* <hr />
+        <h2>NextAuth Server Session</h2>
+        <pre>
+          <code>{JSON.stringify(session, null, 2)}</code>
+        </pre> */}
+      </Section>
 
-      <hr />
-      <DeleteAccountButton email={session?.user?.email} />
-    </>
+      <Section>
+        <Card>
+          <CardHeader>
+            <CardTitle>Danger zone</CardTitle>
+            <CardDescription>Be careful here</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <DeleteAccountButton email={session?.user?.email} />
+          </CardContent>
+        </Card>
+      </Section>
+    </div>
   );
 }
