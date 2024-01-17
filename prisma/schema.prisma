@@ -3,6 +3,8 @@
 //   provider = "postgresql"
 //   url      = env("DATABASE_URL")
 // }
+
+// Testing Vercel postgres
 datasource db {
   provider  = "postgresql"
   url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
