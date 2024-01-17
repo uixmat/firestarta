@@ -38,7 +38,7 @@ export default async function Header() {
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end gap-6 text-sm relative">
           {session && (
             <DropdownMenu>
-              <DropdownMenuTrigger className="outline-none">
+              <DropdownMenuTrigger className="outline-none ml-auto">
                 <Avatar>
                   <AvatarImage src={session?.user?.image as string} />
                   <AvatarFallback>CN</AvatarFallback>
