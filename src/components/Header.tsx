@@ -33,7 +33,6 @@ export default async function Header() {
             Users
           </Link>
           {!session && <GithubButton />}
-          {session && <SignOutButton />}
         </nav>
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end gap-6 text-sm relative">
           {session && (
@@ -54,6 +53,9 @@ export default async function Header() {
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
                   <Link href="/account">Profile</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <SignOutButton />
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
