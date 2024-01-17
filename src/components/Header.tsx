@@ -35,7 +35,7 @@ export default async function Header() {
           {!session && <GithubButton />}
           {session && <SignOutButton />}
         </nav>
-        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end gap-6 text-sm">
+        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end gap-6 text-sm relative">
           {session && (
             <DropdownMenu>
               <DropdownMenuTrigger className="outline-none">
@@ -45,7 +45,12 @@ export default async function Header() {
                 </Avatar>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuLabel>
+                  <p>{session?.user?.name}</p>
+                  <p className="text-xs font-normal text-foreground/60">
+                    {session?.user?.email}
+                  </p>
+                </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
                   <Link href="/account">Profile</Link>

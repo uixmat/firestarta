@@ -6,25 +6,25 @@ export async function UsersPage() {
 
   if ("error" in response) {
     return (
-      <main>
+      <>
         <h1>Error fetching users</h1>
         <p>{String(response.error)}</p>
-      </main>
+      </>
     );
   }
 
   const users = response.users;
   if (users.length === 0) {
     return (
-      <main>
+      <>
         <h1>No users</h1>
         <p>There are currently no users to display.</p>
-      </main>
+      </>
     );
   }
 
   return (
-    <main>
+    <>
       <h1>Users from server side</h1>
       <ul>
         {users?.map((user: any, id: number) => (
@@ -33,7 +33,7 @@ export async function UsersPage() {
           </li>
         ))}
       </ul>
-    </main>
+    </>
   );
 }
 

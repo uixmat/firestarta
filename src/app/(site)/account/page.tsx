@@ -15,7 +15,7 @@ export default async function AccountPage() {
 
   return (
     <>
-      <h1>Your account</h1>
+      <h1>Profile</h1>
       <p>
         <i>
           Data from next auth server session using{" "}
