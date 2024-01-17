@@ -2,7 +2,7 @@
 
 This repository serves as a starting point (or boilerplate) for any Next.js project that requires user authentication and management. It currently uses Prisma with a Postgres database and is being built out using shadcn/ui components besides custom sass components when needed.
 
-## Dependencies
+## The stack
 
 - Next.js
 - NextAuth
@@ -12,6 +12,7 @@ This repository serves as a starting point (or boilerplate) for any Next.js proj
 - Sass
 - Tailwind
 - shadcn/ui
+- Sonner toasts
 
 ## Setup
 
