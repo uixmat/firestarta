@@ -52,6 +52,9 @@ export default async function Header() {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
+                  <Link href="/account">Account</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
                   <Link href="/account">Profile</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>

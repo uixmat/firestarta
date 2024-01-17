@@ -15,17 +15,14 @@ export default async function AccountPage() {
 
   return (
     <>
-      <h1>Profile</h1>
+      <h1>Welcome back {session?.user?.name}</h1>
+      <p>Your email: {session?.user?.email}</p>
       <p>
         <i>
           Data from next auth server session using{" "}
           <code>getServerSession()</code>
         </i>
       </p>
-      <ul>
-        <li>Welcome back {session?.user?.name}</li>
-        <li>Your email: {session?.user?.email}</li>
-      </ul>
 
       <hr />
       <h2>Update profile in database</h2>
