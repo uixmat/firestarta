@@ -67,8 +67,8 @@ export const AccountForm = ({ data }: Props) => {
       if (response.ok) {
         // Update the session and refresh the router
         await update({ name: values.username, jobTitle: values.jobtitle });
+        router.refresh();
         toast.success("Account updated.");
-        router.push("/account");
       } else {
         toast.error("Failed to update user.");
       }
