@@ -5,10 +5,12 @@ This is a very simple repository showing you how to render session data using Ne
 
 - Next.js
 - NextAuth
-- Prisma
 - Typescript
-- Sass
+- Prisma
 - Postgres
+- Sass
+- Tailwind
+- shadcn/ui
 
 ## Setup
 

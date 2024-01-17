@@ -1,7 +1,6 @@
 import { NextAuthProvider } from "./providers";
 
-import "./globals.scss";
-import styles from "./page.module.scss";
+import "@/styles/globals.css";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 
@@ -19,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <NextAuthProvider>
-          <main className={styles.main}>
+          <main className="bg-slate-500">
             <Header />
             {children}
           </main>
