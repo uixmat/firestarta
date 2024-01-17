@@ -1,6 +1,7 @@
 "use client";
 
 import { signOut } from "next-auth/react";
+import { Button } from "@/components/ui/button";
 
 interface Props {
   email: any;
@@ -22,8 +23,8 @@ export const DeleteAccountButton = ({ email }: Props) => {
   };
 
   return (
-    <button onClick={handleDelete}>
+    <Button onClick={handleDelete} variant="destructive">
       <span>Delete account for {email}</span>
-    </button>
+    </Button>
   );
 };
