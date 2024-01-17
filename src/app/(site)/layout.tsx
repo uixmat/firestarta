@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "NextAuth OAuth with Prisma and MongoDB",
+  title: "NextAuth OAuth with Prisma and Postgres",
   description: "A simple example of how to use NextAuth with OAuth providers.",
 };
 
@@ -15,10 +15,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className="dark">
+      <body className="min-h-screen bg-background font-sans antialiased">
         <NextAuthProvider>
-          <main className="bg-slate-500">
+          <main>
             <Header />
             {children}
           </main>
