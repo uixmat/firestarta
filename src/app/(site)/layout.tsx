@@ -2,6 +2,7 @@ import { NextAuthProvider } from "./providers";
 
 import "@/styles/globals.css";
 import type { Metadata } from "next";
+import { Toaster } from "@/components/ui/sonner";
 import Header from "@/components/core/header/Header";
 
 export const metadata: Metadata = {
@@ -20,6 +21,7 @@ export default function RootLayout({
         <NextAuthProvider>
           <Header />
           {children}
+          <Toaster position="bottom-center" />
         </NextAuthProvider>
       </body>
     </html>

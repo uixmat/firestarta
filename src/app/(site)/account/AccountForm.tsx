@@ -17,6 +17,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import { toast } from "sonner";
 
 interface Props {
   data: any;
@@ -66,11 +67,13 @@ export const AccountForm = ({ data }: Props) => {
       if (response.ok) {
         // Update the session and refresh the router
         await update({ name: values.username, jobTitle: values.jobtitle });
-        router.refresh();
+        toast.success("Account updated.");
+        router.push("/account");
       } else {
-        console.log("Failed to update user");
+        toast.error("Failed to update user.");
       }
     } catch (error) {
+      toast.error("Something went wrong.");
       console.error("Error:", error);
     }
   };
