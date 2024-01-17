@@ -25,12 +25,13 @@ export default async function AccountPage() {
         <Card>
           <CardHeader>
             <CardTitle>Your account</CardTitle>
-            <CardDescription>{session?.user?.email}</CardDescription>
+            <CardDescription>
+              <code className="text-xs">{session?.user?.id}</code>
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <p>{session?.user?.name}</p>
             <p>{session?.user?.jobTitle}</p>
-            <code className="text-xs">{session?.user?.id}</code>
           </CardContent>
         </Card>
       </Section>
@@ -45,12 +46,6 @@ export default async function AccountPage() {
             <AccountForm data={session} />
           </CardContent>
         </Card>
-
-        {/* <hr />
-        <h2>NextAuth Server Session</h2>
-        <pre>
-          <code>{JSON.stringify(session, null, 2)}</code>
-        </pre> */}
       </Section>
 
       <Section>
