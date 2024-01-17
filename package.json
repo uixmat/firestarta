@@ -7,7 +7,7 @@
     "build": "prisma generate --no-engine && next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate --no-engine",
+    "postinstall": "prisma generate",
     "migrate": "dotenv -e .env.local npx prisma migrate dev"
   },
   "dependencies": {
