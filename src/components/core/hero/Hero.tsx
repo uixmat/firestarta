@@ -1,5 +1,3 @@
-// import styles from "./Hero.module.scss";
-import Image from "next/image";
 import clsx from "clsx";
 interface HeroProps {
   title: React.ReactNode;
@@ -23,35 +21,6 @@ export const Hero = ({ title, description, size, children }: HeroProps) => {
         <div className="relative flex flex-col items-center justify-center text-center text-yellow-50">
           <h1 className="mb-4 text-4xl font-bold md:text-6xl">{title}</h1>
           <div className="mb-10">{description}</div>
-          <div className="relative flex flex-wrap items-center justify-center gap-12 p-6 mb-10">
-            <div className="absolute h-[1px] w-[80vw] min-w-[800px] max-w-[1000px] top-0 left-50 border-1 border-t border-dashed hidden md:block" />
-            <div className="absolute h-[1px] w-[80vw] min-w-[800px] max-w-[1000px] bottom-0 left-50 border-1 border-t border-dashed hidden md:block" />
-            <div className="absolute h-[calc(100%+100px)] w-[1px] top-50 right-0 border-1 border-r border-dashed hidden md:block" />
-            <Image
-              src="/logos/nextjs.svg"
-              alt="Next.js"
-              width={100}
-              height={20}
-            />
-            <Image
-              src="/logos/prisma.svg"
-              alt="Prisma"
-              width={120}
-              height={47}
-            />
-            <Image
-              src="/logos/shadcnui.svg"
-              alt="shadcn/ui"
-              width={158}
-              height={26}
-            />
-            <Image
-              src="/logos/tailwindcss.svg"
-              alt="Tailwind CSS"
-              width={130}
-              height={21}
-            />
-          </div>
           {children}
         </div>
       </div>
