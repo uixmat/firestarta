@@ -1,4 +1,6 @@
 import Hero from "@/components/core/hero/Hero";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -25,7 +27,13 @@ export default function Home() {
             </p>
           </>
         }
-      />
+      >
+        <Button asChild>
+          <Link href="https://github.com/mattsince87/nextauth-prisma">
+            Get started
+          </Link>
+        </Button>
+      </Hero>
 
       <div className="container">
         <p>Hello</p>

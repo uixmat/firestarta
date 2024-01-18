@@ -24,13 +24,17 @@ export default async function Header() {
   const session = await getServerSession(authOptions);
 
   return (
-    <header className="fixed top-0 z-40 flex w-full transition-all border-b backdrop-blur-xl bg-background">
+    <header className="fixed top-0 z-40 flex w-full transition-all border-b backdrop-blur-xl bg-background/60">
       <div className="container flex items-center h-14 max-w-screen-2xl">
         <nav className="flex items-center gap-6 text-sm">
-          <Link href="/" className="flex items-center">
-            <Logo className="h-6" />
-            <span className={poppins.className}>
-              <b>Firestarta</b>.dev
+          <Link
+            href="/"
+            className="flex items-center"
+            title="Firestarta - Next.js SaaS Boilerplate"
+          >
+            <Logo className="h-4 mr-2" />
+            <span className={`${poppins.className} text-lime-200`}>
+              <b className="text-white">Firestarta</b>.dev
             </span>
           </Link>
           <Link
@@ -52,7 +56,7 @@ export default async function Header() {
           {session && (
             <DropdownMenu>
               <DropdownMenuTrigger className="ml-auto outline-none">
-                <Avatar>
+                <Avatar className="w-8 h-8">
                   <AvatarImage src={session?.user?.image as string} />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
