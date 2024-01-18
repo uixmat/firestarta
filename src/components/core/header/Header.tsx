@@ -38,12 +38,6 @@ export default async function Header() {
             </span>
           </Link>
           <Link
-            href="/"
-            className="transition-colors hover:text-foreground/80 text-foreground/60"
-          >
-            Home
-          </Link>
-          <Link
             href="/users"
             className="transition-colors hover:text-foreground/80 text-foreground/60"
           >
@@ -55,7 +49,7 @@ export default async function Header() {
           {!session && <GithubButton />}
           {session && (
             <DropdownMenu>
-              <DropdownMenuTrigger className="ml-auto outline-none">
+              <DropdownMenuTrigger className="outline-none">
                 <Avatar className="w-8 h-8">
                   <AvatarImage src={session?.user?.image as string} />
                   <AvatarFallback>CN</AvatarFallback>

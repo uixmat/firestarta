@@ -36,6 +36,7 @@ export function ThemeSwitcher() {
       variant="ghost"
       onClick={toggleTheme}
       suppressHydrationWarning
+      className="ml-auto"
     >
       {renderIcon()}
     </Button>
