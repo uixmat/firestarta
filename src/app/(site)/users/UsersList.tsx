@@ -40,23 +40,23 @@ export async function UsersList() {
           <CardDescription>Users fetched using SSR</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
             {users?.map((user: any, id: number) => (
               <Link
                 key={user.id}
                 href={`/users/${user.id}`}
-                className="flex items-center justify-between space-x-4"
+                className="flex items-center justify-between p-2 space-x-4 transition-all rounded-md hover:bg-muted"
               >
                 <div className="flex items-center space-x-4">
                   <Avatar>
                     <AvatarImage src={user.image as string} />
                     <AvatarFallback>CN</AvatarFallback>
                   </Avatar>
-                  <div>
+                  <div className="flex flex-col w-full overflow-hidden">
                     <p className="text-sm font-medium leading-none">
                       {user.name}
                     </p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="block w-full overflow-hidden text-sm text-muted-foreground whitespace-nowrap text-ellipsis">
                       {user.email}
                     </p>
                   </div>
