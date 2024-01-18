@@ -1,6 +1,8 @@
 # NextAuth with OAuth & Route Handlers, Prisma, Postgres, Tailwind, shadcn/ui and Sass.
 This repository serves as a starting point (or boilerplate) for any Next.js project that requires user authentication and management. It currently uses Prisma with a Postgres database and is being built out using shadcn/ui components besides custom sass components when needed.
 
+> Production currently uses Vercel Storage and i have plans to move to an alternative database such as Mongodb.
+
 ## The stack
 - Next.js
 - NextAuth
