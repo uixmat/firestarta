@@ -10,7 +10,7 @@ export const Hero = ({ title, description, size, children }: HeroProps) => {
   const sizeClasses = clsx({
     "py-32": size === "sm",
     "py-48": size === "md",
-    "py-64": size === "lg",
+    "py-32 md:py-48 lg:py-64": size === "lg",
   });
 
   return (
@@ -19,7 +19,9 @@ export const Hero = ({ title, description, size, children }: HeroProps) => {
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-teal-400/10 via-transparent" />
       <div className="container relative">
         <div className="relative flex flex-col items-center justify-center text-center text-yellow-50">
-          <h1 className="mb-4 text-4xl font-bold md:text-6xl">{title}</h1>
+          <h1 className="mb-4 text-4xl font-bold md:text-6xl text-balance">
+            {title}
+          </h1>
           <div className="mb-10">{description}</div>
           {children}
         </div>
