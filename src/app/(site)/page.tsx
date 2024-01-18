@@ -44,8 +44,8 @@ export default function Home() {
           <Image
             src="/logos/shadcnui.svg"
             alt="shadcn/ui"
-            width={158}
-            height={26}
+            width={124}
+            height={20}
           />
           <Image
             src="/logos/tailwindcss.svg"
