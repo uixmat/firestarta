@@ -1,9 +1,10 @@
 // import styles from "./Hero.module.scss";
 
 import clsx from "clsx";
+import Logo from "@/components/core/brand/Logo";
 interface HeroProps {
-  title: string;
-  description: string;
+  title: React.ReactNode;
+  description: React.ReactNode;
   size: "sm" | "md" | "lg";
 }
 
@@ -17,7 +18,8 @@ export const Hero = ({ title, description, size }: HeroProps) => {
   return (
     <div className={`w-full ${sizeClasses}`}>
       <div className="container">
-        <div className="relative flex flex-col items-center justify-center">
+        <div className="relative flex flex-col items-center justify-center text-center text-yellow-50">
+          <Logo className="h-16 mb-5" />
           <h1 className="mb-4 text-6xl font-bold">{title}</h1>
           <p>{description}</p>
         </div>

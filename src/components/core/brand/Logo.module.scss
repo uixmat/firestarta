@@ -1,0 +1,71 @@
+// Logo Module
+
+$alpha: #FEF7B9;
+$beta: #86FFDE;
+
+$baseLogoWidth: 253px;
+$baseLogoHeight: 202px;
+
+.logoWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-height: 10px;
+  aspect-ratio: $baseLogoWidth / $baseLogoHeight;
+}
+
+.logo {
+  display: block;
+  position: absolute;
+  width: 100%;
+  aspect-ratio: $baseLogoWidth / $baseLogoHeight;
+  transform: rotate(-30deg);
+  transform-origin: 33% 33%; // Centers(ish) logo in my case
+}
+
+// Logo Maths
+$baseLogoWidth: 253px;
+$baseLogoHeight: 202px;
+
+$barHeightPercent: 36 / 202 * 100%;
+$barMarginBottomPercent: 18 / 202 * 100%;
+
+$f1WidthPercent: 130 / 253 * 100%;
+$f2WidthPercent: 190 / 253 * 100%;
+$f3WidthPercent: 130 / 253 * 100%;
+$f4WidthPercent: 70 / 253 * 100%;
+
+// Bars
+.f1, .f2, .f3, .f4 {
+  display: block;
+  position: relative;
+  background: $alpha;
+  height: $barHeightPercent;
+  width: 100%;
+  border-radius: 100px;
+  margin-bottom: $barMarginBottomPercent;
+}
+.f1 {
+  width: $f1WidthPercent;
+  left: 66 / 253 * 100%;
+}
+.f2 {
+  background: color-mix(in oklab, $alpha, $beta 33%) ;
+  width: $f2WidthPercent;
+  left: 60 / 253 * 100%;
+}
+
+.f3 {
+  background: color-mix(in oklab, $alpha, $beta 66%) ;
+  width: $f3WidthPercent;
+  left: 4 / 253 * 100%;
+}
+
+.f4 {
+  background: $beta;
+  width: $f4WidthPercent;
+  left: 0;
+  margin-bottom: 0;
+}

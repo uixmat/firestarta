@@ -13,8 +13,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { UserRound, UserRoundCog } from "lucide-react";
-
+import { poppins } from "@/lib/utils/fonts";
 import dynamic from "next/dynamic";
+import Logo from "../brand/Logo";
 const ThemeSwitcher = dynamic(() => import("../theme/ThemeSwitch"), {
   ssr: false,
 });
@@ -23,9 +24,15 @@ export default async function Header() {
   const session = await getServerSession(authOptions);
 
   return (
-    <header className="fixed top-0 z-40 border-b flex w-full backdrop-blur-xl transition-all bg-background">
-      <div className="container flex h-14 max-w-screen-2xl items-center">
+    <header className="fixed top-0 z-40 flex w-full transition-all border-b backdrop-blur-xl bg-background">
+      <div className="container flex items-center h-14 max-w-screen-2xl">
         <nav className="flex items-center gap-6 text-sm">
+          <Link href="/" className="flex items-center">
+            <Logo className="h-6" />
+            <span className={poppins.className}>
+              <b>Firestarta</b>.dev
+            </span>
+          </Link>
           <Link
             href="/"
             className="transition-colors hover:text-foreground/80 text-foreground/60"
@@ -39,12 +46,12 @@ export default async function Header() {
             Users
           </Link>
         </nav>
-        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end gap-2 text-sm relative">
+        <div className="relative flex items-center justify-between flex-1 gap-2 space-x-2 text-sm md:justify-end">
           <ThemeSwitcher />
           {!session && <GithubButton />}
           {session && (
             <DropdownMenu>
-              <DropdownMenuTrigger className="outline-none ml-auto">
+              <DropdownMenuTrigger className="ml-auto outline-none">
                 <Avatar>
                   <AvatarImage src={session?.user?.image as string} />
                   <AvatarFallback>CN</AvatarFallback>
@@ -60,14 +67,14 @@ export default async function Header() {
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
                   <Link href="/account">
-                    <span className="flex gap-1 items-center">
+                    <span className="flex items-center gap-1">
                       <UserRoundCog className="h-4" /> Account
                     </span>
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Link href={`/users/${session.user.id}`}>
-                    <span className="flex gap-1 items-center">
+                    <span className="flex items-center gap-1">
                       <UserRound className="h-4" /> Profile
                     </span>
                   </Link>
