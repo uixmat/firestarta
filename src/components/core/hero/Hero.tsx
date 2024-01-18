@@ -30,14 +30,14 @@ export const Hero = ({ title, description, size, children }: HeroProps) => {
             <Image
               src="/logos/nextjs.svg"
               alt="Next.js"
-              width={131}
-              height={26}
+              width={100}
+              height={20}
             />
             <Image
               src="/logos/prisma.svg"
               alt="Prisma"
-              width={150}
-              height={60}
+              width={120}
+              height={47}
             />
             <Image
               src="/logos/shadcnui.svg"
