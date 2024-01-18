@@ -17,8 +17,8 @@ export const Hero = ({ title, description, size }: HeroProps) => {
   return (
     <div className={`w-full ${sizeClasses}`}>
       <div className="container">
-        <div className="flex items-center justify-center flex-col relative">
-          <h1 className="font-bold text-6xl mb-4">{title}</h1>
+        <div className="relative flex flex-col items-center justify-center">
+          <h1 className="mb-4 text-6xl font-bold">{title}</h1>
           <p>{description}</p>
         </div>
       </div>

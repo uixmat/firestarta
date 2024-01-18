@@ -1,5 +1,5 @@
 import { NextAuthProvider } from "./providers";
-
+import { Poppins } from "next/font/google";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/sonner";
@@ -11,15 +11,21 @@ export const metadata: Metadata = {
   description: "A simple example of how to use NextAuth with OAuth providers.",
 };
 
+const poppins = Poppins({
+  weight: ["500", "600"],
+  subsets: ["latin-ext"],
+  variable: "--font-poppins",
+});
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${poppins.variable}`}>
       <ThemeProvider>
-        <body className="min-h-screen bg-background font-sans antialiased">
+        <body className="min-h-screen font-sans antialiased bg-background">
           <NextAuthProvider>
             <Header />
             {children}
