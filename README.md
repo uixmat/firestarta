@@ -15,6 +15,13 @@ This repository serves as a starting point (or boilerplate) for any Next.js proj
 - Sonner toasts
 - Lucide icons
 
+## Currenbt features
+- App directory
+- Route Groups
+- Intercepting & Parallel Routes
+- CSR/SSR
+- Prisma Schema
+
 ## Setup
 Create a `.env.local` file and generate NextAuth secret using:
 
