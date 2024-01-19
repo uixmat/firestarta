@@ -11,10 +11,9 @@ export const metadata: Metadata = {
   description: "A simple example of how to use NextAuth with OAuth providers.",
 };
 
-export default function RootLayout({
-  children,
-}: {
+export default function DefaultLayout(props: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
     <html lang="en" className={`${poppins.variable}`}>
@@ -22,7 +21,8 @@ export default function RootLayout({
         <body className="min-h-screen font-sans antialiased bg-background">
           <NextAuthProvider>
             <Header />
-            {children}
+            {props.children}
+            {props.modal}
             <Toaster position="top-center" />
           </NextAuthProvider>
         </body>

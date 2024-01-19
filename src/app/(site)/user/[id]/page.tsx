@@ -18,7 +18,7 @@ async function getUser(id: string) {
   return user;
 }
 
-const Page = async ({ params }: PageProps) => {
+const User = async ({ params }: PageProps) => {
   const user = await getUser(params.id);
 
   return (
@@ -50,4 +50,4 @@ const Page = async ({ params }: PageProps) => {
   );
 };
 
-export default Page;
+export default User;

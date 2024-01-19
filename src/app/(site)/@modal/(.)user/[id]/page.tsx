@@ -4,10 +4,9 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 
-export default function UserModal() {
+export default function User() {
   return (
     <Dialog open>
       <DialogContent>
