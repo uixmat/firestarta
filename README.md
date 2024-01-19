@@ -23,6 +23,7 @@ This repository serves as a starting point (or boilerplate) for any Next.js proj
 - Intercepting & Parallel Routes
 - CSR/SSR
 - Prisma Schema
+- SEO
 
 ## Setup
 Create a `.env.local` file and generate NextAuth secret using:
