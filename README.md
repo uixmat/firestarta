@@ -3,8 +3,7 @@ This repository serves as a starting point (or boilerplate) for any Next.js proj
 
 > Production currently uses Vercel Storage and i have plans to move to an alternative db provider in the near future.
 
-## Demo 
-:point_right: [Firestarta.dev](https://firestarta.dev)
+## Live :point_right: [Firestarta.dev](https://firestarta.dev)
 
 ## The stack
 - Next.js
@@ -55,5 +54,3 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-> Hellop there Mr.Footnote
