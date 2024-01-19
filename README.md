@@ -3,6 +3,9 @@ This repository serves as a starting point (or boilerplate) for any Next.js proj
 
 > Production currently uses Vercel Storage and i have plans to move to an alternative db provider in the near future.
 
+## Demo 
+:point_right: [Firestarta.dev](https://firestarta.dev)
+
 ## The stack
 - Next.js
 - NextAuth
@@ -15,7 +18,7 @@ This repository serves as a starting point (or boilerplate) for any Next.js proj
 - Sonner toasts
 - Lucide icons
 
-## Currenbt features
+## Current features
 - App directory
 - Route Groups
 - Intercepting & Parallel Routes
