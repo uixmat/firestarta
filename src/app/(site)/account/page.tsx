@@ -12,6 +12,17 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+export async function generateMetadata() {
+  const session = await getServerSession(authOptions);
+
+  if (!session) {
+    return null;
+  }
+  return {
+    title: `Account | ${session.user.name}`,
+  };
+}
+
 export default async function AccountPage() {
   const session = await getServerSession(authOptions);
 

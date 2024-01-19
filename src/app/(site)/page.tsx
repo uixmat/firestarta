@@ -5,6 +5,13 @@ import Image from "next/image";
 import { Github } from "lucide-react";
 import Testimonials from "@/components/marketing/testimonials/Testimonials";
 import Features from "@/components/marketing/features/Features";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Firestarta.dev - Your Next.js bootstrap",
+  description:
+    "Firestarta.dev is a Next.js bootstrap for your future projects with Authentication, Prisma and Postgres.",
+};
 
 export default function Home() {
   return (

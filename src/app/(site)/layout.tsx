@@ -7,8 +7,9 @@ import { ThemeProvider } from "@/components/core/provider/ThemeProvider";
 import { poppins } from "@/lib/utils/fonts";
 
 export const metadata: Metadata = {
-  title: "NextAuth OAuth with Prisma and Postgres",
-  description: "A simple example of how to use NextAuth with OAuth providers.",
+  title: "Firestarta.dev - Your Next.js bootstrap",
+  description:
+    "Firestarta.dev is a Next.js bootstrap for your future projects with Authentication, Prisma and Postgres.",
 };
 
 export default function DefaultLayout(props: {

@@ -9,6 +9,20 @@ interface PageProps {
   };
 }
 
+export async function generateMetadata({ params }: PageProps) {
+  const user = await getUser(params.id);
+
+  if (!user) {
+    return {
+      title: "User not found",
+    };
+  }
+  return {
+    title: `${user.name}'s profile`,
+    description: `Welcome to ${user.name}'s profile page.`,
+  };
+}
+
 async function getUser(id: string) {
   const { user } = await getUserById(id);
   if (!user) {

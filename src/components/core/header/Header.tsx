@@ -71,7 +71,7 @@ export default async function Header() {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Link href={`/users/${session.user.id}`}>
+                  <Link href={`/user/${session.user.id}`}>
                     <span className="flex items-center gap-1">
                       <UserRound className="h-4" /> Profile
                     </span>
