@@ -17,8 +17,13 @@ export default function DefaultLayout(props: {
   modal: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${poppins.variable}`}>
-      <ThemeProvider>
+    <html lang="en" className={`${poppins.variable}`} suppressHydrationWarning>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
         <body className="min-h-screen font-sans antialiased bg-background">
           <NextAuthProvider>
             <Header />

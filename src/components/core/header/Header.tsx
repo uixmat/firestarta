@@ -14,11 +14,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { UserRound, UserRoundCog } from "lucide-react";
 import { poppins } from "@/lib/utils/fonts";
-import dynamic from "next/dynamic";
 import Logo from "../brand/Logo";
-const ThemeSwitcher = dynamic(() => import("../theme/ThemeSwitch"), {
-  ssr: false,
-});
+import { Switch } from "../theme/Switch";
 
 export default async function Header() {
   const session = await getServerSession(authOptions);
@@ -45,7 +42,7 @@ export default async function Header() {
           </Link>
         </nav>
         <div className="relative flex items-center justify-between flex-1 gap-2 space-x-2 text-sm md:justify-end">
-          <ThemeSwitcher />
+          <Switch />
           {!session && <GithubButton />}
           {session && (
             <DropdownMenu>
@@ -72,11 +69,16 @@ export default async function Header() {
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   {/* use anchor to avoid intercepting route */}
-                  <a href={`/users/${session.user.id}`} rel="prefetch">
+                  {/* <a href={`/users/${session.user.id}`} rel="prefetch">
                     <span className="flex items-center gap-1">
                       <UserRound className="h-4" /> Profile anchor
                     </span>
-                  </a>
+                  </a> */}
+                  <Link href={`/users/${session.user.id}`}>
+                    <span className="flex items-center gap-1">
+                      <UserRound className="h-4" /> Profile
+                    </span>
+                  </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <SignOutButton />
