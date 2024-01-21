@@ -44,7 +44,7 @@ export async function UsersList() {
             {users?.map((user: any, id: number) => (
               <Link
                 key={user.id}
-                href={`/user/${user.id}`}
+                href={`/users/${user.id}`}
                 className="flex items-center justify-between p-2 space-x-4 transition-all rounded-md hover:bg-muted"
               >
                 <div className="flex items-center space-x-4">

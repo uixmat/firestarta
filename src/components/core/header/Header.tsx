@@ -71,11 +71,12 @@ export default async function Header() {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Link href={`/user/${session.user.id}`}>
+                  {/* use anchor to avoid intercepting route */}
+                  <a href={`/users/${session.user.id}`} rel="prefetch">
                     <span className="flex items-center gap-1">
-                      <UserRound className="h-4" /> Profile
+                      <UserRound className="h-4" /> Profile anchor
                     </span>
-                  </Link>
+                  </a>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <SignOutButton />
