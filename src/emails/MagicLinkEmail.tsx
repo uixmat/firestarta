@@ -12,8 +12,8 @@ import {
 } from "@react-email/components";
 
 interface EmailProps {
-  url: string;
-  host: string;
+  url: any;
+  host: any;
 }
 
 export const MagicLinkEmail = ({ url, host }: EmailProps) => {

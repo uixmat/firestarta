@@ -35,6 +35,9 @@ dependencies:
   '@react-email/components':
     specifier: 0.0.14
     version: 0.0.14(@types/react@18.2.21)(react@18.2.0)
+  '@react-email/render':
+    specifier: 0.0.12
+    version: 0.0.12
   '@types/node':
     specifier: 20.5.7
     version: 20.5.7
