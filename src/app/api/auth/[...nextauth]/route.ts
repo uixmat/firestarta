@@ -1,7 +1,8 @@
 import NextAuth, { NextAuthOptions, Session as NextAuthSession, User } from "next-auth";
-import GithubProvider from 'next-auth/providers/github'
+import GithubProvider from 'next-auth/providers/github';
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { Adapter } from "next-auth/adapters";
+import { sendVerificationRequest } from "@/lib/utils/sendVerificationRequest";
 import prisma from "@/lib/prisma";
 
 interface CustomUser extends User {
@@ -20,6 +21,12 @@ export const authOptions:NextAuthOptions = {
     strategy: "jwt",
   },
   providers: [
+    // @ts-ignore
+    {
+      id: 'resend',
+      type: 'email',
+      sendVerificationRequest
+    },
     GithubProvider({
       clientId: process.env.GITHUB_ID as string,
       clientSecret: process.env.GITHUB_SECRET as string,

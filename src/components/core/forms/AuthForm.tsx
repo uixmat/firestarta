@@ -37,6 +37,7 @@ export const AuthForm = ({ variant }: AuthFormProps) => {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
+    signIn("resend", { email: values.email, callbackUrl: "/" });
   }
 
   // Messaging
@@ -66,7 +67,7 @@ export const AuthForm = ({ variant }: AuthFormProps) => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input placeholder="name@example.com" {...field} />
+                    <Input required placeholder="name@example.com" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

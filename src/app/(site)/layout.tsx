@@ -17,7 +17,11 @@ export default function DefaultLayout(props: {
   modal: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${poppins.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${poppins.variable} dark`}
+      suppressHydrationWarning
+    >
       {/* <ThemeProvider
         attribute="class"
         defaultTheme="system"
