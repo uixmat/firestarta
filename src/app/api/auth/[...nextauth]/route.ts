@@ -12,6 +12,10 @@ export const authOptions:NextAuthOptions = {
   adapter: PrismaAdapter(prisma) as Adapter,
   secret: process.env.NEXTAUTH_SECRET,
   debug: true,
+  pages: {
+    signIn: '/signin',
+    signOut: '/signout',
+  },
   session: {
     strategy: "jwt",
   },

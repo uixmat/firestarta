@@ -1,7 +1,6 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
-import { GithubButton } from "./GithubButton";
 import { SignOutButton } from "./SignOutButton";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -15,7 +14,8 @@ import {
 import { UserRound, UserRoundCog } from "lucide-react";
 import { poppins } from "@/lib/utils/fonts";
 import Logo from "../brand/Logo";
-import { Switch } from "../theme/Switch";
+import { Button, buttonVariants } from "@/components/ui/button";
+// import { Switch } from "../theme/Switch";
 
 export default async function Header() {
   const session = await getServerSession(authOptions);
@@ -42,8 +42,17 @@ export default async function Header() {
           </Link>
         </nav>
         <div className="relative flex items-center justify-between flex-1 gap-2 space-x-2 text-sm md:justify-end">
-          <Switch />
-          {!session && <GithubButton />}
+          {/* <Switch /> */}
+          {!session && (
+            <>
+              <Button asChild size="sm" variant="ghost">
+                <Link href="/signin">sign in</Link>
+              </Button>
+              <Button asChild size="sm">
+                <Link href="/signup">Get started</Link>
+              </Button>
+            </>
+          )}
           {session && (
             <DropdownMenu>
               <DropdownMenuTrigger className="outline-none">
