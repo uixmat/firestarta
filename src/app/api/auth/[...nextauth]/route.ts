@@ -2,8 +2,8 @@ import NextAuth, { NextAuthOptions, Session as NextAuthSession, User } from "nex
 import GithubProvider from 'next-auth/providers/github';
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { Adapter } from "next-auth/adapters";
-import { sendVerificationRequest } from "@/lib/utils/sendVerificationRequest";
 import prisma from "@/lib/prisma";
+import { sendVerificationRequest } from "@/lib/utils/sendVerificationRequest";
 
 interface CustomUser extends User {
   jobTitle?: string;
@@ -21,16 +21,16 @@ export const authOptions:NextAuthOptions = {
     strategy: "jwt",
   },
   providers: [
-    // @ts-ignore
-    {
-      id: 'resend',
-      type: 'email',
-      sendVerificationRequest
-    },
     GithubProvider({
       clientId: process.env.GITHUB_ID as string,
       clientSecret: process.env.GITHUB_SECRET as string,
     }),
+    // @ts-ignore
+    // {
+    //   id: 'resend',
+    //   type: 'email',
+    //   sendVerificationRequest
+    // }
   ],
   callbacks: {
     async jwt({ token, trigger, session, account, user }) {

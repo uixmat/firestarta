@@ -63,7 +63,7 @@ dependencies:
     specifier: 13.4.19
     version: 13.4.19(react-dom@18.2.0)(react@18.2.0)(sass@1.69.7)
   next-auth:
-    specifier: ^4.23.1
+    specifier: ^4.24.5
     version: 4.24.5(next@13.4.19)(react-dom@18.2.0)(react@18.2.0)
   next-themes:
     specifier: ^0.2.1
@@ -75,7 +75,7 @@ dependencies:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
   react-email:
-    specifier: 2.0.0
+    specifier: ^2.0.0
     version: 2.0.0(eslint@8.48.0)(sass@1.69.7)
   react-hook-form:
     specifier: ^7.49.3
@@ -4417,8 +4417,8 @@ packages:
       next: 13.4.19(react-dom@18.2.0)(react@18.2.0)(sass@1.69.7)
       oauth: 0.9.15
       openid-client: 5.6.4
-      preact: 10.19.3
-      preact-render-to-string: 5.2.6(preact@10.19.3)
+      preact: 10.11.3
+      preact-render-to-string: 5.2.3(preact@10.11.3)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       uuid: 8.3.2
@@ -4886,21 +4886,8 @@ packages:
       pretty-format: 3.8.0
     dev: false
 
-  /preact-render-to-string@5.2.6(preact@10.19.3):
-    resolution: {integrity: sha512-JyhErpYOvBV1hEPwIxc/fHWXPfnEGdRKxc8gFdAZ7XV4tlzyzG847XAyEZqoDnynP88akM4eaHcSOzNcLWFguw==}
-    peerDependencies:
-      preact: '>=10'
-    dependencies:
-      preact: 10.19.3
-      pretty-format: 3.8.0
-    dev: false
-
   /preact@10.11.3:
     resolution: {integrity: sha512-eY93IVpod/zG3uMF22Unl8h9KkrcKIRs2EGar8hwLZZDU1lkjph303V9HZBwufh2s736U6VXuhD109LYqPoffg==}
-    dev: false
-
-  /preact@10.19.3:
-    resolution: {integrity: sha512-nHHTeFVBTHRGxJXKkKu5hT8C/YWBkPso4/Gad6xuj5dbptt9iF9NZr9pHbPhBrnT2klheu7mHTxTZ/LjwJiEiQ==}
     dev: false
 
   /prelude-ls@1.2.1:
