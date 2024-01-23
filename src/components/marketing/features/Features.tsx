@@ -38,7 +38,7 @@ export default function Features() {
           <CardContent>
             <p>
               Firestarta uses NextAuth with built in support for OAuth 1.0 &amp;
-              2.0 social logins, magic links and passwordless.
+              2.0 social logins and magic links.
             </p>
           </CardContent>
         </Card>
