@@ -11,7 +11,7 @@ This repository serves as a starting point (or boilerplate) for any Next.js proj
 - NextAuth
 - Typescript
 - Prisma
-- Postgres / Vercel Storage
+- Supabase (Psotgres)
 - Sass
 - Tailwindcss
 - shadcn/ui
