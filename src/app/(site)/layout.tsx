@@ -33,7 +33,7 @@ export default function DefaultLayout(props: {
           <Header />
           {props.children}
           {props.modal}
-          <Toaster position="top-center" />
+          <Toaster position="top-center" richColors />
         </NextAuthProvider>
       </body>
       {/* </ThemeProvider> */}

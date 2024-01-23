@@ -19,6 +19,8 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { toast } from "sonner";
 
+import { Loader } from "lucide-react";
+
 interface Props {
   data: any;
 }
@@ -36,6 +38,7 @@ export const AccountForm = ({ data }: Props) => {
   const [name, setName] = useState(data.user.name || "");
   const [jobTitle, setJobTitle] = useState(data.user.jobTitle || "");
   const { data: session, update } = useSession();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
   // 1. Define your form.
@@ -49,6 +52,7 @@ export const AccountForm = ({ data }: Props) => {
 
   // 2. Define a submit handler.
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    setIsSubmitting(true);
     try {
       const response = await fetch(`/api/user/${data.user.email}`, {
         method: "PUT",
@@ -73,6 +77,7 @@ export const AccountForm = ({ data }: Props) => {
       toast.error("Something went wrong.");
       console.error("Error:", error);
     }
+    setIsSubmitting(false);
   };
 
   return (
@@ -112,7 +117,13 @@ export const AccountForm = ({ data }: Props) => {
             )}
           />
         </div>
-        <Button type="submit">Submit</Button>
+        <Button type="submit">
+          {isSubmitting ? (
+            <Loader className="w-3 h-3 animate-spin text-background" />
+          ) : (
+            "Submit"
+          )}
+        </Button>
       </form>
     </Form>
   );
