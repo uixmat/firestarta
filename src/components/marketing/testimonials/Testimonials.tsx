@@ -1,3 +1,4 @@
+import GradientText from "@/components/core/gradient-text/GradientText";
 import { Section } from "@/components/core/section/Section";
 import { SectionHeader } from "@/components/core/section/SectionHeader";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -18,9 +19,7 @@ export default function Testimonials() {
           <>
             Many developers
             <br />
-            <b className="text-transparent bg-clip-text bg-gradient bg-gradient-to-r from-lime-200 to-yellow-50">
-              love using Firestarta.
-            </b>
+            <GradientText>love using Firestarta.</GradientText>
           </>
         }
         description={

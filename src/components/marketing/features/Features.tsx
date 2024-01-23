@@ -1,3 +1,4 @@
+import GradientText from "@/components/core/gradient-text/GradientText";
 import { Section } from "@/components/core/section/Section";
 import { SectionHeader } from "@/components/core/section/SectionHeader";
 import {
@@ -15,9 +16,7 @@ export default function Features() {
         title={
           <>
             Powerful integrations <br />
-            <b className="text-transparent bg-clip-text bg-gradient bg-gradient-to-r from-lime-200 to-yellow-50">
-              out of the box.
-            </b>
+            <GradientText>out of the box.</GradientText>
           </>
         }
         description={

@@ -17,26 +17,22 @@ export default function DefaultLayout(props: {
   modal: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${poppins.variable} dark`}
-      suppressHydrationWarning
-    >
-      {/* <ThemeProvider
+    <html lang="en" className={`${poppins.variable}`} suppressHydrationWarning>
+      <ThemeProvider
         attribute="class"
         defaultTheme="system"
         enableSystem
         disableTransitionOnChange
-      > */}
-      <body className="min-h-screen font-sans antialiased bg-background">
-        <NextAuthProvider>
-          <Header />
-          {props.children}
-          {props.modal}
-          <Toaster position="top-center" richColors />
-        </NextAuthProvider>
-      </body>
-      {/* </ThemeProvider> */}
+      >
+        <body className="min-h-screen font-sans antialiased bg-background">
+          <NextAuthProvider>
+            <Header />
+            {props.children}
+            {props.modal}
+            <Toaster position="top-center" richColors />
+          </NextAuthProvider>
+        </body>
+      </ThemeProvider>
     </html>
   );
 }

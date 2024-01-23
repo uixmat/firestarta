@@ -15,7 +15,7 @@ import { UserRound, UserRoundCog } from "lucide-react";
 import { poppins } from "@/lib/utils/fonts";
 import Logo from "../brand/Logo";
 import { Button, buttonVariants } from "@/components/ui/button";
-// import { Switch } from "../theme/Switch";
+import { Switch } from "../theme/Switch";
 
 export default async function Header() {
   const session = await getServerSession(authOptions);
@@ -42,7 +42,7 @@ export default async function Header() {
           </Link>
         </nav>
         <div className="relative flex items-center justify-between flex-1 gap-2 space-x-2 text-sm md:justify-end">
-          {/* <Switch /> */}
+          <Switch />
           {!session && (
             <>
               <Button asChild size="sm" variant="ghost">

@@ -6,6 +6,7 @@ import { Github } from "lucide-react";
 import Testimonials from "@/components/marketing/testimonials/Testimonials";
 import Features from "@/components/marketing/features/Features";
 import type { Metadata } from "next";
+import GradientText from "@/components/core/gradient-text/GradientText";
 
 export const metadata: Metadata = {
   title: "Firestarta.dev - Your Next.js bootstrap",
@@ -20,10 +21,7 @@ export default function Home() {
         size="lg"
         title={
           <>
-            Build faster,{" "}
-            <b className="text-transparent bg-clip-text bg-gradient bg-gradient-to-r from-lime-200 to-yellow-50">
-              build better!
-            </b>
+            Build faster, <GradientText>build better!</GradientText>
           </>
         }
         description={

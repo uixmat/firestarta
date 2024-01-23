@@ -18,7 +18,7 @@ export const Hero = ({ title, description, size, children }: HeroProps) => {
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-lime-400/10 via-background to-background" />
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-teal-400/10 via-transparent" />
       <div className="container relative">
-        <div className="relative flex flex-col items-center justify-center text-center text-yellow-50">
+        <div className="relative flex flex-col items-center justify-center text-center text-gray-800 dark:text-yellow-50">
           <h1 className="mb-4 text-4xl font-bold md:text-6xl text-balance">
             {title}
           </h1>

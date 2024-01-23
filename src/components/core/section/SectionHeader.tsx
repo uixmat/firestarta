@@ -11,7 +11,7 @@ export const SectionHeader = ({
 }: HeaderProps) => {
   return (
     <header className="flex flex-col w-full gap-3 mb-12">
-      <div className="relative flex flex-col items-center justify-center text-center text-yellow-50">
+      <div className="relative flex flex-col items-center justify-center text-center text-gray-800 dark:text-yellow-50">
         <h2 className="mb-4 text-2xl font-bold md:text-5xl text-balance">
           {title}
         </h2>
