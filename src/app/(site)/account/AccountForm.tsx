@@ -50,7 +50,7 @@ export const AccountForm = ({ data }: Props) => {
   // 2. Define a submit handler.
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const response = await fetch(`/user/${data.user.email}`, {
+      const response = await fetch(`/api/user/${data.user.email}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
