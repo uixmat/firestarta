@@ -4,6 +4,7 @@ This repository serves as a starting point (or boilerplate) for any Next.js proj
 ## Live :point_right: [Firestarta.dev](https://firestarta.dev)
 
 ![Vercel](https://vercelbadge.vercel.app/api/uixmat/firestarta)
+
 [![Made with Supabase](https://supabase.com/badge-made-with-supabase-dark.svg)](https://supabase.com)
 
 ## The stack
