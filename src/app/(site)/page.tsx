@@ -8,6 +8,12 @@ import Features from "@/components/marketing/features/Features";
 import type { Metadata } from "next";
 import GradientText from "@/components/core/gradient-text/GradientText";
 
+import NextLogo from "@/components/logos/next";
+import PrismaLogo from "@/components/logos/prisma";
+import ShadcnuiLogo from "@/components/logos/shadcnui";
+import SupabaseLogo from "@/components/logos/supabase";
+import TailwindLogo from "@/components/logos/tailwind";
+
 export const metadata: Metadata = {
   title: "Firestarta.dev - Your Next.js bootstrap",
   description:
@@ -37,29 +43,15 @@ export default function Home() {
           </>
         }
       >
-        <div className="relative flex flex-wrap items-center justify-center gap-12 p-6 mb-10">
+        <div className="relative flex flex-wrap items-center justify-center gap-12 p-6 mb-10 text-xl">
           <div className="absolute h-[1px] w-[80vw] min-w-[800px] max-w-[1000px] top-0 left-50 border-1 border-t border-dashed hidden md:block" />
           <div className="absolute h-[1px] w-[80vw] min-w-[800px] max-w-[1000px] bottom-0 left-50 border-1 border-t border-dashed hidden md:block" />
           <div className="absolute h-[calc(100%+100px)] w-[1px] top-50 right-0 border-1 border-r border-dashed hidden md:block" />
-          <Image
-            src="/logos/nextjs.svg"
-            alt="Next.js"
-            width={100}
-            height={20}
-          />
-          <Image src="/logos/prisma.svg" alt="Prisma" width={120} height={47} />
-          <Image
-            src="/logos/shadcnui.svg"
-            alt="shadcn/ui"
-            width={124}
-            height={20}
-          />
-          <Image
-            src="/logos/tailwindcss.svg"
-            alt="Tailwind CSS"
-            width={130}
-            height={21}
-          />
+          <NextLogo />
+          <PrismaLogo />
+          <SupabaseLogo />
+          <ShadcnuiLogo />
+          <TailwindLogo />
         </div>
         <Button asChild>
           <Link href="https://github.com/mattsince87/nextauth-prisma">
