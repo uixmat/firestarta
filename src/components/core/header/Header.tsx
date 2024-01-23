@@ -23,15 +23,18 @@ export default async function Header() {
   return (
     <header className="fixed top-0 z-40 flex w-full transition-all border-b backdrop-blur-xl bg-background/60">
       <div className="container flex items-center h-14 max-w-screen-2xl">
-        <nav className="flex items-center gap-6 text-sm">
+        <nav className="flex items-center gap-3 text-sm md:gap-6">
           <Link
             href="/"
             className="flex items-center"
             title="Firestarta - Next.js SaaS Boilerplate"
           >
             <Logo className="h-4 mr-2" />
-            <span className={`${poppins.className} text-lime-200`}>
-              <b className="text-white">Firestarta</b>.dev
+            <span
+              className={`${poppins.className} dark:text-lime-200 text-lime-500`}
+            >
+              <b className="text-gray-800 dark:text-white">Firestarta</b>
+              <span className="hidden md:inline">.dev</span>
             </span>
           </Link>
           <Link
@@ -45,11 +48,13 @@ export default async function Header() {
           <Switch />
           {!session && (
             <>
-              <Button asChild size="sm" variant="ghost">
-                <Link href="/signin">sign in</Link>
-              </Button>
+              {/* <Button asChild size="sm" variant="ghost">
+                <Link href="/signin">Sign in</Link>
+              </Button> */}
               <Button asChild size="sm">
-                <Link href="/signup">Get started</Link>
+                <Link href="/signin" className="m-0">
+                  Get started
+                </Link>
               </Button>
             </>
           )}
@@ -77,12 +82,6 @@ export default async function Header() {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  {/* use anchor to avoid intercepting route */}
-                  {/* <a href={`/users/${session.user.id}`} rel="prefetch">
-                    <span className="flex items-center gap-1">
-                      <UserRound className="h-4" /> Profile anchor
-                    </span>
-                  </a> */}
                   <Link href={`/users/${session.user.id}`}>
                     <span className="flex items-center gap-1">
                       <UserRound className="h-4" /> Profile
