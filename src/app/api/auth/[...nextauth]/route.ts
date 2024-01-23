@@ -25,11 +25,12 @@ export const authOptions:NextAuthOptions = {
       clientId: process.env.GITHUB_ID as string,
       clientSecret: process.env.GITHUB_SECRET as string,
     }),
+    // @ts-ignore
     {
       id: 'resend',
       type: 'email',
       sendVerificationRequest
-    })
+    }
   ],
   callbacks: {
     async jwt({ token, trigger, session, account, user }) {
