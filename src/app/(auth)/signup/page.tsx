@@ -1,3 +1,4 @@
+"use client";
 import AuthForm from "@/components/core/forms/AuthForm";
 export default function Signup() {
   return (
