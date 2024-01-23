@@ -50,19 +50,16 @@ export const AccountForm = ({ data }: Props) => {
   // 2. Define a submit handler.
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const response = await fetch(
-        `http://localhost:3000/api/user/${data.user.email}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: values.username,
-            jobTitle: values.jobtitle,
-          }),
-        }
-      );
+      const response = await fetch(`/user/${data.user.email}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: values.username,
+          jobTitle: values.jobtitle,
+        }),
+      });
       console.log("HTTP Response: ", response);
       if (response.ok) {
         // Update the session and refresh the router
