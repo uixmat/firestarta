@@ -1,9 +1,10 @@
 # NextAuth with OAuth & Route Handlers, Prisma, Postgres, Tailwind, shadcn/ui and Sass.
 This repository serves as a starting point (or boilerplate) for any Next.js project that requires user authentication and management. It currently uses Prisma with a Postgres database and is being built out using shadcn/ui components besides custom sass components when needed.
 
-> Production currently uses Vercel Storage and i have plans to move to an alternative db provider in the near future.
-
 ## Live :point_right: [Firestarta.dev](https://firestarta.dev)
+
+![Vercel](https://vercelbadge.vercel.app/api/uixmat/firestarta)
+[![Made with Supabase](https://supabase.com/badge-made-with-supabase-dark.svg)](https://supabase.com)
 
 ## The stack
 - Next.js
@@ -41,10 +42,8 @@ NEXTAUTH_URL=http://localhost:3000
 GITHUB_SECRET=
 GITHUB_ID=
 
-POSTGRES_PRISMA_URL=
+DATABASE_URL=
 ```
-
-> The production build of this repo uses [Vercel Storage](https://vercel.com/docs/storage) which uses the environment variable `POSTGRES_PRISMA_URL` by deault. TI have plans to move to an alternative db provider in the near future.
 
 To setup Github visit [https://github.com/settings/apps](https://github.com/settings/apps) to create a new app. the callback URL should be: `[origin]/api/auth/callback/[provider]` as stated in the [NextAuth](https://next-auth.js.org/configuration/providers/oauth) documentation.
 
