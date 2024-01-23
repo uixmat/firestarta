@@ -1,7 +1,11 @@
 {
-  "name": "nextjs-prisma",
+  "name": "firestarter.dev",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "uixmat",
+    "url": "https://x.com/uiuxmat"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "prisma generate && next build",
