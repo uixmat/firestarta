@@ -1,4 +1,5 @@
-import NextAuth, { NextAuthOptions, Session as NextAuthSession, User } from "next-auth";
+import { NextAuthOptions, User } from "next-auth";
+import NextAuth from 'next-auth/next';
 import GithubProvider from 'next-auth/providers/github';
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { Adapter } from "next-auth/adapters";
@@ -9,7 +10,7 @@ interface CustomUser extends User {
   jobTitle?: string;
 }
 
-export const authOptions:NextAuthOptions = {
+export const authOptions = {
   adapter: PrismaAdapter(prisma) as Adapter,
   secret: process.env.NEXTAUTH_SECRET,
   debug: true,
@@ -25,6 +26,7 @@ export const authOptions:NextAuthOptions = {
       clientId: process.env.GITHUB_ID as string,
       clientSecret: process.env.GITHUB_SECRET as string,
     }),
+
     {
       id: 'resend',
       type: 'email',
@@ -64,5 +66,5 @@ export const authOptions:NextAuthOptions = {
   },
 }
 
-const handler = NextAuth(authOptions);
+const handler = NextAuth(authOptions as NextAuthOptions);
 export { handler as GET, handler as POST }
