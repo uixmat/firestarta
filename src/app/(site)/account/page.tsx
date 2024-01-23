@@ -11,7 +11,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ServerForm } from "./AccountFormSSR";
 
 export async function generateMetadata() {
   const session = await getServerSession(authOptions);
