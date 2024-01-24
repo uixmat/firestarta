@@ -15,19 +15,19 @@ export default function DefaultLayout(props: {
 }) {
   return (
     <html lang="en" className={`${poppins.variable}`} suppressHydrationWarning>
-      {/* <ThemeProvider
+      <ThemeProvider
         attribute="class"
         defaultTheme="system"
         enableSystem
         disableTransitionOnChange
-      > */}
-      <body className="min-h-screen font-sans antialiased bg-background">
-        <NextAuthProvider>
-          {props.children}
-          <Toaster position="top-center" />
-        </NextAuthProvider>
-      </body>
-      {/* </ThemeProvider> */}
+      >
+        <body className="min-h-screen font-sans antialiased bg-background">
+          <NextAuthProvider>
+            {props.children}
+            <Toaster position="top-center" />
+          </NextAuthProvider>
+        </body>
+      </ThemeProvider>
     </html>
   );
 }
