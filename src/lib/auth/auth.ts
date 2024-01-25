@@ -21,7 +21,7 @@ export const authOptions: NextAuthOptions = {
     GithubProvider({
       clientId: process.env.GITHUB_ID as string,
       clientSecret: process.env.GITHUB_SECRET as string,
-    }),
+    })
   ],
   callbacks: {
     async jwt({ token, trigger, session, account, user }) {
