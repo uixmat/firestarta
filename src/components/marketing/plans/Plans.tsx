@@ -8,10 +8,12 @@ import {
   CardContent,
   Card,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+
+import PlanButton from "./PlanButton";
 
 export const Plans = async () => {
   const products = await ls.listAllProducts();
+  const subscription = null; // TODO
   return (
     <>
       <div className="flex flex-col items-start justify-center max-w-4xl gap-6 p-4 mx-auto md:flex-row md:gap-12 md:p-6">
@@ -20,7 +22,11 @@ export const Plans = async () => {
             <CardHeader>
               <CardTitle>{product.attributes.name}</CardTitle>
               <CardDescription>
-                {product.attributes.description}
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: product.attributes.description,
+                  }}
+                />
               </CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col gap-4">
@@ -32,12 +38,13 @@ export const Plans = async () => {
                 <li>Unlimited Public Projects</li>
                 <li>Community Access</li>
               </ul>
-              <Button className="mt-auto">Choose Plan</Button>
+              <PlanButton plan={product} subscription={subscription} />
             </CardContent>
           </Card>
         ))}
       </div>
 
+      {/* Products object */}
       <code className="text-xs">
         <pre>{JSON.stringify(products.data, null, 2)}</pre>
       </code>
