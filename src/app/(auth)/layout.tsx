@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/core/provider/ThemeProvider";
 import { poppins } from "@/lib/utils/fonts";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL),
   title: "Firestarta.dev",
 };
 

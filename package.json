@@ -34,6 +34,7 @@
     "clsx": "^2.1.0",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
+    "lemonsqueezy.ts": "^0.1.7",
     "lucide-react": "^0.311.0",
     "next": "^14.1.0",
     "next-auth": "^4.24.5",

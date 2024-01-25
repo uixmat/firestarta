@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: PageProps) {
     };
   }
   return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL),
     title: `${user.name}'s profile`,
     description: `Welcome to ${user.name}'s profile page.`,
   };
