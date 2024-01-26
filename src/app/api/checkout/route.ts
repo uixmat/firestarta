@@ -1,8 +1,6 @@
 import { NextResponse } from 'next/server'
 import { getSession } from '@/lib/auth'
-import LemonSqueezy from '@lemonsqueezy/lemonsqueezy.js'
-
-const ls = new LemonSqueezy(process.env.LEMONSQUEEZY_API_KEY)
+import ls from '@/lib/lemonsqueezy'
 
 export async function POST(request) {
   const session = await getSession()
@@ -17,26 +15,25 @@ export async function POST(request) {
     return NextResponse.json({ error: true, message: 'No variant ID was provided.' }, { status: 400 })
   }
 
-  // Customise the checkout experience
-  // All the options: https://docs.lemonsqueezy.com/api/checkouts#create-a-checkout
+  // Checkout options: https://docs.lemonsqueezy.com/api/checkouts#create-a-checkout
   const attributes = {
-      'checkout_options': {
-          'embed': true,
-          'media': false,
-      },
-      'checkout_data': {
-          'email': session.user.email,
-          'custom': {
-              'user_id': session.user.id
-          }
-      },
-      'product_options': {
-          'enabled_variants': [res.variantId],
-          'redirect_url': `${process.env.NEXT_PUBLIC_SITE_URL}/pricing/`,
-          'receipt_link_url': `${process.env.NEXT_PUBLIC_SITE_URL}/pricing/`,
-          'receipt_button_text': 'Go to your account',
-          'receipt_thank_you_note': 'Thank you for signing up to Lemonstand!'
+    'checkout_options': {
+      'embed': true,
+      'media': false,
+  },
+    'checkout_data': {
+      'email': session.user.email,
+      'custom': {
+        'user_id': session.user.id
       }
+    },
+    'product_options': {
+      'enabled_variants': [res.variantId],
+      'redirect_url': `${process.env.NEXT_PUBLIC_SITE_URL}/pricing/`,
+      'receipt_link_url': `${process.env.NEXT_PUBLIC_SITE_URL}/pricing/`,
+      'receipt_button_text': 'Go to your account',
+      'receipt_thank_you_note': 'Thank you for signing up to Lemonstand!'
+    }
   }
 
   try {
