@@ -36,7 +36,6 @@ openssl rand -base64 32
 
 ### `.env.local` 
 ```
-# Next Auth
 NEXTAUTH_SECRET=
 NEXTAUTH_URL=http://localhost:3000
 
@@ -44,6 +43,9 @@ GITHUB_SECRET=
 GITHUB_ID=
 
 DATABASE_URL=
+
+LEMONSQUEEZY_STORE_ID=
+LEMONSQUEEZY_API_KEY="
 ```
 
 To setup Github visit [https://github.com/settings/apps](https://github.com/settings/apps) to create a new app. the callback URL should be: `[origin]/api/auth/callback/[provider]` as stated in the [NextAuth](https://next-auth.js.org/configuration/providers/oauth) documentation.

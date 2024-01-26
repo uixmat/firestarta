@@ -9,6 +9,56 @@ generator client {
   provider = "prisma-client-js"
 }
 
+// Lemon Squeezy Models
+
+model Subscription {
+  id                 Int       @id @default(autoincrement())
+  lemonSqueezyId     Int       @unique
+  orderId            Int       @unique
+  name               String
+  email              String
+  status             String
+  renewsAt           DateTime?
+  endsAt             DateTime?
+  trialEndsAt        DateTime?
+  resumesAt          DateTime?
+  price              Int
+  plan               Plan      @relation(fields: [planId], references: [id])
+  planId             Int
+  user               User      @relation(fields: [userId], references: [id])
+  userId             String
+  isUsageBased       Boolean   @default(false)
+  subscriptionItemId Int?      @unique
+
+  @@index([planId, lemonSqueezyId])
+}
+
+model Plan {
+  id            Int            @id @default(autoincrement())
+  productId     Int
+  variantId     Int            @unique
+  name          String? // Need to get from Product
+  description   String?
+  variantName   String
+  sort          Int
+  status        String
+  price         Int
+  interval      String
+  intervalCount Int            @default(1)
+  subscriptions Subscription[]
+}
+
+model WebhookEvent {
+  id              Int      @id @default(autoincrement())
+  createdAt       DateTime @default(now())
+  eventName       String
+  processed       Boolean  @default(false)
+  body            Json
+  processingError String?
+}
+
+// NextAuth.js Models
+
 model Account {
   id                String  @id @default(uuid())
   userId            String
@@ -46,13 +96,14 @@ model VerificationToken {
 }
 
 model User {
-  id            String    @id @default(uuid())
+  id            String         @id @default(uuid())
   name          String?
-  email         String    @unique
+  email         String         @unique
   emailVerified DateTime?
   image         String?
   imageUrl      String?
   jobTitle      String?
   accounts      Account[]
   sessions      Session[]
+  subscriptions Subscription[]
 }

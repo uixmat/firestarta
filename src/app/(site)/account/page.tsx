@@ -19,6 +19,7 @@ export async function generateMetadata() {
     return null;
   }
   return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL),
     title: `Account | ${session.user.name}`,
   };
 }

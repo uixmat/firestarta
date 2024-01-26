@@ -1,8 +1,4 @@
 // Logo Module
-
-// $alpha: #FEF7B9;
-// $beta: #86FFDE;
-
 $baseLogoWidth: 253px;
 $baseLogoHeight: 202px;
 
@@ -41,8 +37,8 @@ $f4WidthPercent: 70 / 253 * 100%;
 .f1, .f2, .f3, .f4 {
   display: block;
   position: relative;
-  // background: $alpha;
   height: $barHeightPercent;
+  min-height: 2px;
   width: 100%;
   border-radius: 100px;
   margin-bottom: $barMarginBottomPercent;
@@ -52,19 +48,16 @@ $f4WidthPercent: 70 / 253 * 100%;
   left: 66 / 253 * 100%;
 }
 .f2 {
-  // background: color-mix(in oklab, $alpha, $beta 33%) ;
   width: $f2WidthPercent;
   left: 60 / 253 * 100%;
 }
 
 .f3 {
-  // background: color-mix(in oklab, $alpha, $beta 66%) ;
   width: $f3WidthPercent;
   left: 4 / 253 * 100%;
 }
 
 .f4 {
-  // background: $beta;
   width: $f4WidthPercent;
   left: 0;
   margin-bottom: 0;
