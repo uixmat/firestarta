@@ -13,6 +13,7 @@ This repository serves as a starting point (or boilerplate) for any Next.js proj
 - Typescript
 - Prisma
 - Supabase (Psotgres)
+- Lemon Squeezy
 - Sass
 - Tailwindcss
 - shadcn/ui
