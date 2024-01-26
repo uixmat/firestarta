@@ -12,12 +12,26 @@ import {
 import PlanButton from "./PlanButton";
 
 export const Plans = async () => {
-  const products = await ls.listAllProducts();
+  const products = await ls.getProducts();
   const subscription = null; // TODO
+
+  const productsWithVariantIds = await Promise.all(
+    products.data.map(async (product) => {
+      const pid = parseInt(product.id, 10);
+      const variantsResponse = await ls.getVariants({ productId: pid });
+      const variants = variantsResponse.data;
+
+      // First variant id
+      const variantId = variants.length > 0 ? variants[0].id : null;
+
+      return { ...product, variant_id: variantId };
+    })
+  );
+
   return (
     <>
       <div className="flex flex-col items-start justify-center max-w-4xl gap-6 p-4 mx-auto md:flex-row md:gap-12 md:p-6">
-        {products.data.map((product) => (
+        {productsWithVariantIds.map((product) => (
           <Card className="flex-1" key={product.id}>
             <CardHeader>
               <CardTitle>{product.attributes.name}</CardTitle>
@@ -39,12 +53,14 @@ export const Plans = async () => {
                 <li>Community Access</li>
               </ul>
               <PlanButton plan={product} subscription={subscription} />
+              <p>PID: {product.id}</p>
+              <p>VID: {product.variant_id}</p>
             </CardContent>
           </Card>
         ))}
       </div>
 
-      {/* Products object */}
+      {/* Products object for testing */}
       <code className="text-xs">
         <pre>{JSON.stringify(products.data, null, 2)}</pre>
       </code>

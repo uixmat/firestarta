@@ -1,5 +1,5 @@
-import { LemonsqueezyClient } from "lemonsqueezy.ts";
+import { LemonSqueezy } from "@lemonsqueezy/lemonsqueezy.js";
 
-const ls = new LemonsqueezyClient(process.env.LEMONSQUEEZY_API_KEY);
+const ls = new LemonSqueezy(process.env.LEMONSQUEEZY_API_KEY);
 
 export default ls;
