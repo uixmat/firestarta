@@ -1,4 +1,5 @@
 import Plans from "@/components/marketing/plans/Plans";
+import Script from "next/script";
 
 export default function Page() {
   return (
@@ -6,7 +7,7 @@ export default function Page() {
       <h1>Pricing</h1>
       <Plans />
 
-      <script src="https://app.lemonsqueezy.com/js/lemon.js" defer></script>
+      <Script src="https://app.lemonsqueezy.com/js/lemon.js" />
     </div>
   );
 }
