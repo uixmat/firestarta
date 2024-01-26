@@ -32,16 +32,20 @@ export async function POST(request) {
       },
       'product_options': {
           'enabled_variants': [res.variantId],
-          'redirect_url': `${process.env.NEXT_PUBLIC_APP_URL}/billing/`,
-          'receipt_link_url': `${process.env.NEXT_PUBLIC_APP_URL}/billing/`,
+          'redirect_url': `${process.env.NEXT_PUBLIC_SITE_URL}/pricing/`,
+          'receipt_link_url': `${process.env.NEXT_PUBLIC_SITE_URL}/pricing/`,
           'receipt_button_text': 'Go to your account',
           'receipt_thank_you_note': 'Thank you for signing up to Lemonstand!'
       }
   }
 
   try {
-    // Check data
-    console.log("- - - - - -", res.variantId, process.env.LEMONSQUEEZY_STORE_ID)
+    // Check data & log in console
+    console.log("- - - - - -")
+    console.log("storeId", process.env.LEMONSQUEEZY_STORE_ID)
+    console.log("variantId", res.variantId)
+    console.log("attributes", attributes)
+    console.log("- - - - - -")
     const checkout = await ls.createCheckout({
       storeId: Number(process.env.LEMONSQUEEZY_STORE_ID),
       variantId: res.variantId,

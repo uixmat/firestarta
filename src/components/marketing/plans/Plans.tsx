@@ -31,33 +31,36 @@ export const Plans = async () => {
   return (
     <>
       <div className="flex flex-col items-start justify-center max-w-4xl gap-6 p-4 mx-auto md:flex-row md:gap-12 md:p-6">
-        {productsWithVariantIds.map((product) => (
-          <Card className="flex-1" key={product.id}>
-            <CardHeader>
-              <CardTitle>{product.attributes.name}</CardTitle>
-              <CardDescription>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: product.attributes.description,
-                  }}
-                />
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="flex flex-col gap-4">
-              <div className="text-4xl font-bold">
-                {product.attributes.price_formatted}
-              </div>
-              <ul className="space-y-2 list-disc list-inside">
-                <li>1 Workspace</li>
-                <li>Unlimited Public Projects</li>
-                <li>Community Access</li>
-              </ul>
-              <PlanButton plan={product} subscription={subscription} />
-              <p>PID: {product.id}</p>
-              <p>VID: {product.variant_id}</p>
-            </CardContent>
-          </Card>
-        ))}
+        {productsWithVariantIds.map((product) => {
+          console.log(product);
+          return (
+            <Card className="flex-1" key={product.id}>
+              <CardHeader>
+                <CardTitle>{product.attributes.name}</CardTitle>
+                <CardDescription>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: product.attributes.description,
+                    }}
+                  />
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex flex-col gap-4">
+                <div className="text-4xl font-bold">
+                  {product.attributes.price_formatted}
+                </div>
+                <ul className="space-y-2 list-disc list-inside">
+                  <li>1 Workspace</li>
+                  <li>Unlimited Public Projects</li>
+                  <li>Community Access</li>
+                </ul>
+                <PlanButton plan={product} subscription={subscription} />
+                <p>PID: {product.id}</p>
+                <p>VID: {product.variant_id}</p>
+              </CardContent>
+            </Card>
+          );
+        })}
       </div>
 
       {/* Products object for testing */}
