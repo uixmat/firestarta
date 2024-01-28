@@ -1,113 +1,81 @@
-import prisma from '@/lib/prisma'
-import ls from '@/lib/lemonsqueezy'
+import { NextRequest, NextResponse } from "next/server";
+import crypto from 'crypto';
+import prisma from '@/lib/prisma';
 
-export async function POST(event) {
+import {
+  LemonsqueezyWebhookPayload,
+  LemonsqueezySubscriptionAttributes
+} from '@/types/lemonsqueezy';
 
-  let processingError = ''
+const verifySignature = (rawBody: string, signature: string, secret: string): boolean => {
+  const hmac = crypto.createHmac('sha256', secret);
+  const digest = `sha256=${hmac.update(rawBody).digest('hex')}`;
+  return crypto.timingSafeEqual(Buffer.from(digest), Buffer.from(signature));
+};
 
-  const customData = event.body['meta']['custom_data'] || null
-
-  if (!customData || !customData['user_id']) {
-
-    processingError = 'No user ID, can\'t process'
-
-  } else {
-
-    const obj = event.body['data']
-
-    if ( event.eventName.startsWith('subscription_payment_') ) {
-      // Save subscription invoices; obj is a "Subscription invoice"
-
-      /* Not implemented */
-
-    } else if ( event.eventName.startsWith('subscription_') ) {
-      // Save subscriptions; obj is a "Subscription"
-
-      const data = obj['attributes']
-
-      // We assume the Plan table is up to date
-      const plan = await prisma.plan.findUnique({
-        where: {
-          variantId: data['variant_id']
-        },
-      })
-
-      if (!plan) {
-
-        processingError = 'Plan not found in DB. Could not process webhook event.'
-
-      } else {
-
-        // Update the subscription
-
-        const lemonSqueezyId = parseInt(obj['id'])
-
-        // Get subscription's Price object
-        // We save the Price value to the subscription so we can display it in the UI
-        let priceData = await ls.getPrice({ id: data['first_subscription_item']['price_id'] })
-
-        const updateData = {
-          orderId: data['order_id'],
-          name: data['user_name'],
-          email: data['user_email'],
-          status: data['status'],
-          renewsAt: data['renews_at'],
-          endsAt: data['ends_at'],
-          trialEndsAt: data['trial_ends_at'],
-          planId: plan['id'],
-          userId: customData['user_id'],
-          price: priceData['data']['attributes']['unit_price'],
-          subscriptionItemId: data['first_subscription_item']['id'],
-          isUsageBased: data['first_subscription_item']['is_usage_based'],
-        }
-
-        const createData = updateData
-
-        createData.lemonSqueezyId = lemonSqueezyId
-        createData.price = plan.price
-
-        try {
-          // Create/update subscription
-          await prisma.subscription.upsert({
-            where: {
-              lemonSqueezyId: lemonSqueezyId
-            },
-            update: updateData,
-            create: createData,
-          })
-        } catch (error) {
-          processingError = error
-          console.log(error)
-        }
-
-      }
-
-    } else if ( event.eventName.startsWith('order_') ) {
-      // Save orders; obj is a "Order"
-
-      /* Not implemented */
-
-    } else if ( event.eventName.startsWith('license_') ) {
-      // Save license keys; obj is a "License key"
-
-      /* Not implemented */
-
-    }
-
-    try {
-      // Mark event as processed
-      await prisma.webhookEvent.update({
-        where: {
-          id: event.id
-        },
-        data: {
-          processed: true,
-          processingError
-        }
-      })
-    } catch (error) {
-      console.log(error)
-    }
-
+export const POST = async (req: NextRequest) => {
+  if (req.method !== 'POST') {
+    return new Response('Method Not Allowed', { status: 405 });
   }
-}
+
+  try {
+    const rawBody = await req.text();
+    const signature = req.headers.get('x-signature') as string || '';
+    const secret = process.env.LEMON_SQUEEZY_WEBHOOK_SECRET || '';
+
+    if (!verifySignature(rawBody, signature, secret)) {
+      return new Response('Invalid signature', { status: 401 });
+    }
+
+    const payload = JSON.parse(rawBody) as LemonsqueezyWebhookPayload;
+    const subscriptionData = payload.data.attributes as LemonsqueezySubscriptionAttributes;
+    const eventName = payload.meta.event_name;
+
+    const lemonSqueezyId = parseInt(payload.data.id)
+    let price = subscriptionData['first_subscription_item']['price']
+    let variant_id = subscriptionData['first_subscription_item']['variant_id']
+    
+
+
+    switch (eventName) {
+      case 'subscription_created':
+      case 'subscription_updated':
+        await prisma.subscription.upsert({
+          where: { lemonSqueezyId: lemonSqueezyId },
+          update: {
+            status: subscriptionData.status,
+            renewsAt: subscriptionData.renews_at ? new Date(subscriptionData.renews_at) : null,
+            endsAt: subscriptionData.ends_at ? new Date(subscriptionData.ends_at) : null,
+            trialEndsAt: subscriptionData.trial_ends_at ? new Date(subscriptionData.trial_ends_at) : null,
+          },
+          create: {
+            lemonSqueezyId: lemonSqueezyId,
+            orderId: subscriptionData.order_id,
+            name: subscriptionData.product_name,
+            email: subscriptionData.user_email,
+            status: subscriptionData.status,
+            renewsAt: subscriptionData.renews_at ? new Date(subscriptionData.renews_at) : null,
+            endsAt: subscriptionData.ends_at ? new Date(subscriptionData.ends_at) : null,
+            trialEndsAt: subscriptionData.trial_ends_at ? new Date(subscriptionData.trial_ends_at) : null,
+            price: price,
+            planId: variant_id,
+            userId: payload.meta.custom_data.customer_id, // custom data
+          },
+        });
+        break;
+      case 'subscription_cancelled':
+        await prisma.subscription.update({
+          where: { lemonSqueezyId: parseInt(payload.data.id) },
+          data: { status: 'cancelled', endsAt: new Date() }, // Update with actual cancellation logic
+        });
+        break;
+      default:
+        throw new Error(`Unhandled event: ${eventName}`);
+    }
+
+    return new Response('Webhook processed successfully', { status: 200 });
+  } catch (error) {
+    console.error('Error processing webhook:', error);
+    return new Response('Internal Server Error', { status: 500 });
+  }
+};

@@ -17,22 +17,22 @@ export async function POST(request) {
 
   // Checkout options: https://docs.lemonsqueezy.com/api/checkouts#create-a-checkout
   const attributes = {
-    'checkout_options': {
-      'embed': true,
-      'media': false,
-  },
-    'checkout_data': {
-      'email': session.user.email,
-      'custom': {
-        'user_id': session.user.id
-      }
+    "checkout_options": {
+      "embed": true,
+      "media": false,
     },
-    'product_options': {
-      'enabled_variants': [res.variantId],
-      'redirect_url': `${process.env.NEXT_PUBLIC_SITE_URL}/pricing/`,
-      'receipt_link_url': `${process.env.NEXT_PUBLIC_SITE_URL}/pricing/`,
-      'receipt_button_text': 'Go to your account',
-      'receipt_thank_you_note': 'Thank you for signing up to Lemonstand!'
+    "checkout_data": {
+      "email": session.user.email,
+      "custom": {
+        "user_id": session.user.id,
+      },
+    },
+    "product_options": {
+      "enabled_variants": [res.variantId],
+      "redirect_url": `${process.env.NEXT_PUBLIC_SITE_URL}/pricing/`,
+      "receipt_link_url": `${process.env.NEXT_PUBLIC_SITE_URL}/pricing/`,
+      "receipt_button_text": "Go to your account",
+      "receipt_thank_you_note": "Thank you for signing up to Lemonstand!"
     }
   }
 
@@ -40,7 +40,8 @@ export async function POST(request) {
     // Check data & log in console
     console.log("- - - - - -")
     console.log("storeId", process.env.LEMONSQUEEZY_STORE_ID)
-    console.log("variantId", res.variantId)
+    // console.log("variantId", res.variantId)
+    // console.log("user id", session.user.id)
     console.log("attributes", attributes)
     console.log("- - - - - -")
     const checkout = await ls.createCheckout({
