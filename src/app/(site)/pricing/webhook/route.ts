@@ -5,7 +5,6 @@ import prisma from '@/lib/prisma';
 import {
   LemonsqueezyWebhookPayload,
   LemonsqueezySubscriptionAttributes,
-  LemonsqueezyOrderAttributes // Make sure to define this interface
 } from '@/types/lemonsqueezy';
 
 const verifySignature = (rawBody: string, signature: string, secret: string): boolean => {
@@ -43,8 +42,6 @@ export const POST = async (req: NextRequest) => {
       variant_id = subscriptionData.first_order_item ? subscriptionData.variant_id : null;
     }
 
-
-
     switch (eventName) {
       case 'subscription_created':
       case 'subscription_updated':
@@ -67,7 +64,7 @@ export const POST = async (req: NextRequest) => {
             endsAt: subscriptionData.ends_at ? new Date(subscriptionData.ends_at) : null,
             trialEndsAt: subscriptionData.trial_ends_at ? new Date(subscriptionData.trial_ends_at) : null,
             user: {
-              connect: { id: userId }, // Explicitly connecting the subscription to the user
+              connect: { id: userId },
             },
           },
         });
@@ -75,10 +72,10 @@ export const POST = async (req: NextRequest) => {
       case 'subscription_cancelled':
         await prisma.subscription.update({
           where: { lemonSqueezyId: lemonSqueezyId },
-          data: { status: 'cancelled', endsAt: new Date() }, // Update with actual cancellation logic
+          data: { status: 'cancelled', endsAt: new Date() }, 
+          // Update with actual cancellation logic
         });
         break;
-      // Add a case for 'order_created' if you need to handle it differently
       default:
         throw new Error(`Unhandled event: ${eventName}`);
     }
