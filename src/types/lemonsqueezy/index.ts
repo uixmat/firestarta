@@ -83,6 +83,3 @@ export interface LemonsqueezyWebhookPayload {
     relationships: any;
   };
 }
-  
-
-
