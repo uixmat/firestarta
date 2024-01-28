@@ -9,9 +9,17 @@ import {
 
 const verifySignature = (rawBody: string, signature: string, secret: string): boolean => {
   const hmac = crypto.createHmac('sha256', secret);
-  const digest = `sha256=${hmac.update(rawBody).digest('hex')}`;
-  return crypto.timingSafeEqual(Buffer.from(digest), Buffer.from(signature));
+  
+  // Create the digest from the raw body using the secret.
+  const digest = Buffer.from(hmac.update(rawBody).digest('hex'), 'utf8');
+  
+  // Create the signature buffer from the signature string in the headers.
+  const signatureBuffer = Buffer.from(signature, 'utf8');
+  
+  // Compare the buffers using crypto.timingSafeEqual.
+  return digest.length === signatureBuffer.length && crypto.timingSafeEqual(digest, signatureBuffer);
 };
+
 
 export const POST = async (req: NextRequest) => {
   if (req.method !== 'POST') {
@@ -21,7 +29,7 @@ export const POST = async (req: NextRequest) => {
   try {
     const rawBody = await req.text();
     const signature = req.headers.get('x-signature') as string || '';
-    const secret = process.env.LEMON_SQUEEZY_WEBHOOK_SECRET || '';
+    const secret = process.env.LEMONSQUEEZY_WEBHOOK_SECRET || '';
 
     if (!verifySignature(rawBody, signature, secret)) {
       return new Response('Invalid signature', { status: 401 });
