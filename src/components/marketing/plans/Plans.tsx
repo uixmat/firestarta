@@ -32,9 +32,13 @@ export const Plans = async () => {
     <>
       <div className="flex flex-col items-start justify-center max-w-4xl gap-6 p-4 mx-auto md:flex-row md:gap-12 md:p-6">
         {productsWithVariantIds.map((product) => {
-          console.log(product);
           return (
-            <Card className="flex-1" key={product.id}>
+            <Card
+              className="flex-1"
+              key={product.id}
+              data-productid={product.id}
+              data-variantid={product.variant_id}
+            >
               <CardHeader>
                 <CardTitle>{product.attributes.name}</CardTitle>
                 <CardDescription>
@@ -55,8 +59,6 @@ export const Plans = async () => {
                   <li>Community Access</li>
                 </ul>
                 <PlanButton plan={product} subscription={subscription} />
-                <p>PID: {product.id}</p>
-                <p>VID: {product.variant_id}</p>
               </CardContent>
             </Card>
           );
