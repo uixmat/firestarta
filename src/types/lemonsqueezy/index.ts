@@ -60,19 +60,27 @@ export interface LemonsqueezySubscriptionAttributes {
   test_mode: boolean;
 }
 
+export interface LemonsqueezyOrderAttributes {
+  first_subscription_item: {
+    id: number;
+    subscription_id: number;
+    price_id: number;
+  };
+}
+
 export interface LemonsqueezyWebhookPayload {
   meta: {
     test_mode: boolean;
-    event_name: 'subscription_created' | 'subscription_updated' | 'subscription_cancelled';
+    event_name: 'subscription_created' | 'subscription_updated' | 'subscription_cancelled' | 'order_created';
     custom_data: {
-      customer_id: string;
+      user_id: string;
     };
   };
   data: {
     id: string;
     type: string;
-    attributes: LemonsqueezySubscriptionAttributes;
-    relationships: any; // Define more specifically if needed
+    attributes: LemonsqueezySubscriptionAttributes | LemonsqueezyOrderAttributes;
+    relationships: any;
   };
 }
   

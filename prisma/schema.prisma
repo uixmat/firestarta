@@ -22,30 +22,12 @@ model Subscription {
   endsAt             DateTime?
   trialEndsAt        DateTime?
   resumesAt          DateTime?
-  price              Int
-  plan               Plan      @relation(fields: [planId], references: [id])
-  planId             Int
-  user               User      @relation(fields: [userId], references: [id])
   userId             String
   isUsageBased       Boolean   @default(false)
   subscriptionItemId Int?      @unique
+  user               User      @relation(fields: [userId], references: [id])
 
-  @@index([planId, lemonSqueezyId])
-}
-
-model Plan {
-  id            Int            @id @default(autoincrement())
-  productId     Int
-  variantId     Int            @unique
-  name          String? // Need to get from Product
-  description   String?
-  variantName   String
-  sort          Int
-  status        String
-  price         Int
-  interval      String
-  intervalCount Int            @default(1)
-  subscriptions Subscription[]
+  @@index([lemonSqueezyId])
 }
 
 model WebhookEvent {

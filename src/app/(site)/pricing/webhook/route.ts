@@ -4,22 +4,16 @@ import prisma from '@/lib/prisma';
 
 import {
   LemonsqueezyWebhookPayload,
-  LemonsqueezySubscriptionAttributes
+  LemonsqueezySubscriptionAttributes,
+  LemonsqueezyOrderAttributes // Make sure to define this interface
 } from '@/types/lemonsqueezy';
 
 const verifySignature = (rawBody: string, signature: string, secret: string): boolean => {
   const hmac = crypto.createHmac('sha256', secret);
-  
-  // Create the digest from the raw body using the secret.
   const digest = Buffer.from(hmac.update(rawBody).digest('hex'), 'utf8');
-  
-  // Create the signature buffer from the signature string in the headers.
   const signatureBuffer = Buffer.from(signature, 'utf8');
-  
-  // Compare the buffers using crypto.timingSafeEqual.
   return digest.length === signatureBuffer.length && crypto.timingSafeEqual(digest, signatureBuffer);
 };
-
 
 export const POST = async (req: NextRequest) => {
   if (req.method !== 'POST') {
@@ -36,13 +30,19 @@ export const POST = async (req: NextRequest) => {
     }
 
     const payload = JSON.parse(rawBody) as LemonsqueezyWebhookPayload;
-    const subscriptionData = payload.data.attributes as LemonsqueezySubscriptionAttributes;
     const eventName = payload.meta.event_name;
+    const lemonSqueezyId = parseInt(payload.data.id);
 
-    const lemonSqueezyId = parseInt(payload.data.id)
-    let price = subscriptionData['first_subscription_item']['price']
-    let variant_id = subscriptionData['first_subscription_item']['variant_id']
-    
+    let variant_id, userId, subscriptionData;
+
+    if (eventName === 'subscription_created' || eventName === 'subscription_updated' || eventName === 'subscription_cancelled' || eventName === 'order_created') {
+      subscriptionData = payload.data.attributes as LemonsqueezySubscriptionAttributes;
+      console.log("Subscription Data:", subscriptionData);
+      console.log("First Order Item Data:", subscriptionData.first_subscription_item);
+      userId = payload.meta.custom_data ? payload.meta.custom_data.user_id.toString() : null;
+      variant_id = subscriptionData.first_order_item ? subscriptionData.variant_id : null;
+    }
+
 
 
     switch (eventName) {
@@ -55,6 +55,7 @@ export const POST = async (req: NextRequest) => {
             renewsAt: subscriptionData.renews_at ? new Date(subscriptionData.renews_at) : null,
             endsAt: subscriptionData.ends_at ? new Date(subscriptionData.ends_at) : null,
             trialEndsAt: subscriptionData.trial_ends_at ? new Date(subscriptionData.trial_ends_at) : null,
+            userId: userId,
           },
           create: {
             lemonSqueezyId: lemonSqueezyId,
@@ -65,18 +66,19 @@ export const POST = async (req: NextRequest) => {
             renewsAt: subscriptionData.renews_at ? new Date(subscriptionData.renews_at) : null,
             endsAt: subscriptionData.ends_at ? new Date(subscriptionData.ends_at) : null,
             trialEndsAt: subscriptionData.trial_ends_at ? new Date(subscriptionData.trial_ends_at) : null,
-            price: price,
-            planId: variant_id,
-            userId: payload.meta.custom_data.customer_id, // custom data
+            user: {
+              connect: { id: userId }, // Explicitly connecting the subscription to the user
+            },
           },
         });
         break;
       case 'subscription_cancelled':
         await prisma.subscription.update({
-          where: { lemonSqueezyId: parseInt(payload.data.id) },
+          where: { lemonSqueezyId: lemonSqueezyId },
           data: { status: 'cancelled', endsAt: new Date() }, // Update with actual cancellation logic
         });
         break;
+      // Add a case for 'order_created' if you need to handle it differently
       default:
         throw new Error(`Unhandled event: ${eventName}`);
     }
