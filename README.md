@@ -37,6 +37,7 @@ openssl rand -base64 32
 
 ### `.env.local` 
 ```
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
 NEXTAUTH_SECRET=
 NEXTAUTH_URL=http://localhost:3000
 
