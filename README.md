@@ -34,6 +34,18 @@ This repository serves as a starting point (or boilerplate) for any Next.js SaaS
 - Light/Dark Modes
 - Responsive Design
 
+## Roadmap 
+
+> The roadmap is not in a specific order of development
+
+- [ ] Cookies
+- [ ] Internationalisation (Multi-lingual)
+- [ ] Custom errors
+- [ ] Loading states `loading.tsx`
+- [ ] Sitemap
+- [ ] Manifest
+- [ ] Blog
+
 ## Setup
 Create a `.env.local` file and generate NextAuth secret using:
 
