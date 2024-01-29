@@ -1,5 +1,6 @@
-# NextAuth with OAuth & Route Handlers, Prisma, Supabase (Postgres), Tailwind, shadcn/ui and Sass.
-This repository serves as a starting point (or boilerplate) for any Next.js project that requires user authentication and management. It currently uses Prisma with a Postgres database and is being built out using shadcn/ui components besides custom sass components when needed.
+# NextAuth SaaS Boilerplate with OAuth & Route Handlers, Prisma, Supabase (Postgres), Tailwind, shadcn/ui some Sass & Lemon Squeezy Subscriptions.
+
+This repository serves as a starting point (or boilerplate) for any Next.js SaaS project that requires user authentication and management and subscription payments. It currently uses Prisma with a Postgres database and is being built out using shadcn/ui components besides custom sass components when needed.
 
 ## Live :point_right: [Firestarta.dev](https://firestarta.dev)
 
@@ -13,7 +14,7 @@ This repository serves as a starting point (or boilerplate) for any Next.js proj
 - Typescript
 - Prisma
 - Supabase (Psotgres)
-- Lemon Squeezy (Payments)
+- Lemon Squeezy (Subscriptions)
 - Sass
 - Tailwindcss
 - shadcn/ui
@@ -25,8 +26,13 @@ This repository serves as a starting point (or boilerplate) for any Next.js proj
 - Route Groups
 - Intercepting & Parallel Routes
 - CSR/SSR
-- Prisma Schema
-- SEO
+- Subscriptions with Lemon Squeezy
+- Basic SEO
+- User Profiles
+- Account Pages
+- Custom Components
+- Light/Dark Modes
+- Responsive Design
 
 ## Setup
 Create a `.env.local` file and generate NextAuth secret using:
@@ -60,5 +66,3 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-Fn
