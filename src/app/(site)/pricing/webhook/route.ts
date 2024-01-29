@@ -39,7 +39,7 @@ export const POST = async (req: NextRequest) => {
       // console.log("Subscription Data:", subscriptionData);
       // console.log("First Order Item Data:", subscriptionData.first_subscription_item);
       userId = payload.meta.custom_data ? payload.meta.custom_data.user_id.toString() : null;
-      variant_id = subscriptionData.first_order_item ? subscriptionData.variant_id : null;
+      variant_id = subscriptionData.first_subscription_item ? subscriptionData.variant_id : null;
     }
 
     switch (eventName) {
