@@ -11,7 +11,7 @@
     "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "npx prisma migrate dev --name init",
+    "postinstall": "npx prisma migrate deploy --name init",
     "migrate": "dotenv -e .env.local npx prisma migrate dev"
   },
   "dependencies": {
