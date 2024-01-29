@@ -11,6 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import UserSubscription from "@/components/core/user/UserSubscription";
 
 export async function generateMetadata() {
   const session = await getServerSession(authOptions);
@@ -42,8 +43,9 @@ export default async function AccountPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <p>{session?.user?.name}</p>
-            <p>{session?.user?.jobTitle}</p>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <UserSubscription session={session} />
+            </div>
           </CardContent>
         </Card>
       </Section>

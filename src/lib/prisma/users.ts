@@ -44,8 +44,12 @@ export async function getUserById(id: any) {
   try {
     const user = await prisma.user.findUnique({
       where: { id },
+      include: {
+        subscriptions: true,
+        accounts: true,
+      }
     })
-    return { user }
+    return { user}
   } catch (error) {
     return { error }
   }

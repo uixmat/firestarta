@@ -22,7 +22,7 @@ model Subscription {
   endsAt             DateTime?
   trialEndsAt        DateTime?
   resumesAt          DateTime?
-  userId             String
+  userId             String    @unique
   isUsageBased       Boolean   @default(false)
   subscriptionItemId Int?      @unique
   user               User      @relation(fields: [userId], references: [id])

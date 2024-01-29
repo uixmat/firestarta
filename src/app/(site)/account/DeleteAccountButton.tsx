@@ -24,7 +24,8 @@ export const DeleteAccountButton = ({ email }: Props) => {
 
   return (
     <Button onClick={handleDelete} variant="destructive">
-      <span>Delete account for {email}</span>
+      Delete account
+      <span className="hidden ml-1 sm:inline">for {email}</span>
     </Button>
   );
 };
