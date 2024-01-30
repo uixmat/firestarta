@@ -21,7 +21,7 @@ export default async function Header() {
   const session = await getServerSession(authOptions);
 
   return (
-    <header className="fixed top-0 z-40 flex w-full transition-all border-b backdrop-blur-xl bg-background/60">
+    <header className="fixed top-0 z-40 flex w-full transition-all border-b border-border/15 backdrop-blur-xl bg-background/60">
       <div className="container flex items-center h-14 max-w-screen-2xl">
         <nav className="flex items-center gap-3 text-sm md:gap-6">
           <Link
@@ -29,12 +29,9 @@ export default async function Header() {
             className="flex items-center"
             title="Firestarta - Next.js SaaS Boilerplate"
           >
-            <Logo className="h-4 mr-2" />
-            <span
-              className={`${poppins.className} dark:text-lime-200 text-lime-500`}
-            >
+            <Logo className="h-[22px] mr-2" />
+            <span className={`${poppins.className}`}>
               <b className="text-gray-800 dark:text-white">Firestarta</b>
-              <span className="hidden md:inline">.dev</span>
             </span>
           </Link>
           <Link
@@ -48,9 +45,6 @@ export default async function Header() {
           <Switch />
           {!session && (
             <>
-              {/* <Button asChild size="sm" variant="ghost">
-                <Link href="/signin">Sign in</Link>
-              </Button> */}
               <Button asChild size="sm">
                 <Link href="/signin" className="m-0">
                   Get started

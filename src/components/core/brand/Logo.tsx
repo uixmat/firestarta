@@ -5,10 +5,10 @@ interface LogoProps {
 }
 
 export default function Logo({ className }: LogoProps) {
-  const f1 = clsx(styles.f1, "bg-lime-400");
-  const f2 = clsx(styles.f2, "bg-emerald-300");
-  const f3 = clsx(styles.f3, "bg-emerald-400");
-  const f4 = clsx(styles.f4, "bg-emerald-500");
+  const f1 = clsx(styles.f1, "bg-blue-200");
+  const f2 = clsx(styles.f2, "bg-indigo-300");
+  const f3 = clsx(styles.f3, "bg-indigo-300");
+  const f4 = clsx(styles.f4, "bg-violet-400");
 
   return (
     <div className={`${styles.logoWrapper} ${className}`}>

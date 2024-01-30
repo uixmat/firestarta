@@ -1,10 +1,7 @@
 import Hero from "@/components/core/hero/Hero";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import Image from "next/image";
 import { Github } from "lucide-react";
-import Testimonials from "@/components/marketing/testimonials/Testimonials";
-import Features from "@/components/marketing/features/Features";
 import type { Metadata } from "next";
 import GradientText from "@/components/core/gradient-text/GradientText";
 
@@ -13,6 +10,11 @@ import PrismaLogo from "@/components/logos/prisma";
 import ShadcnuiLogo from "@/components/logos/shadcnui";
 import SupabaseLogo from "@/components/logos/supabase";
 import TailwindLogo from "@/components/logos/tailwind";
+
+import Features from "@/components/marketing/features/Features";
+import Testimonials from "@/components/marketing/testimonials/Testimonials";
+import Integrations from "@/components/marketing/integrations/Integrations";
+import Databases from "@/components/marketing/databases/Databases";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL),
@@ -26,11 +28,7 @@ export default function Home() {
     <>
       <Hero
         size="lg"
-        title={
-          <>
-            Build faster, <GradientText>build better!</GradientText>
-          </>
-        }
+        title="Build faster, build better!"
         description={
           <>
             <p>
@@ -45,13 +43,10 @@ export default function Home() {
         }
       >
         <div className="relative flex flex-wrap items-center justify-center gap-12 p-6 mb-10 text-xl">
-          <div className="absolute h-[1px] w-[80vw] min-w-[800px] max-w-[1000px] top-0 left-50 border-1 border-t border-dashed hidden md:block" />
-          <div className="absolute h-[1px] w-[80vw] min-w-[800px] max-w-[1000px] bottom-0 left-50 border-1 border-t border-dashed hidden md:block" />
-          <div className="absolute h-[calc(100%+100px)] w-[1px] top-50 right-0 border-1 border-r border-dashed hidden md:block" />
           <NextLogo />
-          <PrismaLogo />
-          <SupabaseLogo />
-          <ShadcnuiLogo />
+          <PrismaLogo fill="currentColor" />
+          <SupabaseLogo fill="currentColor" />
+          <ShadcnuiLogo fill="currentColor" />
           <TailwindLogo />
         </div>
         <Button asChild>
@@ -64,6 +59,8 @@ export default function Home() {
 
       <div className="container">
         <Features />
+        <Integrations />
+        <Databases />
         <Testimonials />
       </div>
     </>

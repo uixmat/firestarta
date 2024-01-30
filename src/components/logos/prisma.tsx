@@ -1,5 +1,20 @@
-const PrismaLogo: React.FC = () => (
-  <svg height="1.8em" viewBox="0 0 150.575 59.187" fill="currentColor">
+interface LogoProps extends React.HTMLAttributes<HTMLOrSVGElement> {
+  variant?: "symbol" | "color";
+  fill?: string;
+}
+
+const PrismaLogo: React.FC<LogoProps> = ({
+  className,
+  fill,
+  ...props
+}: LogoProps) => (
+  <svg
+    height="1.8em"
+    viewBox="0 0 150.575 59.187"
+    className={className}
+    fill={fill}
+    {...props}
+  >
     <g id="prisma" transform="translate(-0.284 0)">
       <path
         d="M199,62.06H203V47.42H199Zm-.17-18.425q0-1.951,2.174-1.951t2.174,1.951a1.9,1.9,0,0,1-.543,1.447,2.284,2.284,0,0,1-1.63.517Q198.835,45.6,198.835,43.635Z"
