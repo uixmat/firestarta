@@ -42,14 +42,14 @@ export const AuthForm = ({ variant }: AuthFormProps) => {
   let primaryMessage = "create an account";
   let secondaryMessage = "sign up";
   if (variant === "signin") {
-    primaryMessage = "sign in to your account";
+    primaryMessage = "sign in";
     secondaryMessage = "sign in";
   }
 
   return (
     <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
       <div className="flex flex-col space-y-2 text-center">
-        <h1 className="text-2xl font-semibold tracking-tight capitalize">
+        <h1 className="text-2xl font-semibold tracking-tight text-white capitalize">
           {primaryMessage}
         </h1>
         <p className="text-sm text-muted-foregroun">
@@ -65,20 +65,25 @@ export const AuthForm = ({ variant }: AuthFormProps) => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input required placeholder="name@example.com" {...field} />
+                    <Input
+                      required
+                      placeholder="name@example.com"
+                      {...field}
+                      disabled
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button type="submit" className="capitalize">
+            <Button type="submit" className="capitalize" disabled>
               {secondaryMessage} with Email
             </Button>
           </form>
         </Form>
         <div className="relative">
           <div className="absolute inset-0 flex items-center">
-            <span className="w-full border-t"></span>
+            <span className="w-full border-t border-border/20"></span>
           </div>
           <div className="relative flex justify-center text-xs uppercase">
             <span className="px-2 bg-background text-muted-foreground">
@@ -89,7 +94,7 @@ export const AuthForm = ({ variant }: AuthFormProps) => {
         <Button
           variant="secondary"
           onClick={() => signIn("github", { callbackUrl: "/" })}
-          className="capitalize"
+          className="capitalize bg-indigo-700 hover:bg-indigo-800"
         >
           <GithubIcon className="h-4 mr-1" /> {secondaryMessage} with Github
         </Button>
