@@ -15,6 +15,8 @@ import Features from "@/components/marketing/features/Features";
 import Testimonials from "@/components/marketing/testimonials/Testimonials";
 import Integrations from "@/components/marketing/integrations/Integrations";
 import Databases from "@/components/marketing/databases/Databases";
+import FAQs from "@/components/marketing/faqs/FAQs";
+import International from "@/components/marketing/international/International";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL),
@@ -61,7 +63,9 @@ export default function Home() {
         <Features />
         <Integrations />
         <Databases />
+        <International />
         <Testimonials />
+        <FAQs />
       </div>
     </>
   );
