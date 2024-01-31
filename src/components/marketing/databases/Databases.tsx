@@ -10,7 +10,7 @@ import SupabaseLogo from "@/components/logos/supabase";
 
 export default function Databases() {
   return (
-    <Section>
+    <Section size="md">
       <SectionHeader
         title={
           <>

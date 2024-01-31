@@ -11,7 +11,7 @@ import {
 export default function FAQs() {
   return (
     <div className="max-w-4xl mx-auto">
-      <Section>
+      <Section size="md">
         <SectionHeader
           title={
             <>
@@ -29,7 +29,7 @@ export default function FAQs() {
             value="item-1"
             className="mb-2 border rounded-lg bg-gradient-to-br from-background to-foreground/10 border-border/20 backdrop-blur-sm"
           >
-            <AccordionTrigger className="p-4 text-white">
+            <AccordionTrigger className="p-4 text-left text-white text-balance">
               What is Firestarta?
             </AccordionTrigger>
             <AccordionContent className="px-4 text-base">
@@ -43,7 +43,7 @@ export default function FAQs() {
             value="item-2"
             className="mb-2 border rounded-lg bg-gradient-to-br from-background to-foreground/10 border-border/20 backdrop-blur-sm"
           >
-            <AccordionTrigger className="p-4 text-white">
+            <AccordionTrigger className="p-4 text-left text-white text-balance">
               Who needs Firestarta?
             </AccordionTrigger>
             <AccordionContent className="px-4 text-base">
@@ -56,7 +56,7 @@ export default function FAQs() {
             value="item-3"
             className="mb-2 border rounded-lg bg-gradient-to-br from-background to-foreground/10 border-border/20 backdrop-blur-sm"
           >
-            <AccordionTrigger className="p-4 text-white">
+            <AccordionTrigger className="p-4 text-left text-white text-balance">
               Is Firestarta scalable?
             </AccordionTrigger>
             <AccordionContent className="px-4 text-base">
@@ -69,7 +69,7 @@ export default function FAQs() {
             value="item-4"
             className="mb-2 border rounded-lg bg-gradient-to-br from-background to-foreground/10 border-border/20 backdrop-blur-sm"
           >
-            <AccordionTrigger className="p-4 text-white">
+            <AccordionTrigger className="p-4 text-left text-white text-balance">
               Is Firestarta maintained regularly?
             </AccordionTrigger>
             <AccordionContent className="px-4 text-base">
@@ -82,7 +82,7 @@ export default function FAQs() {
             value="item-5"
             className="mb-2 border rounded-lg bg-gradient-to-br from-background to-foreground/10 border-border/20 backdrop-blur-sm"
           >
-            <AccordionTrigger className="p-4 text-white">
+            <AccordionTrigger className="p-4 text-left text-white text-balance">
               Will there be future features?
             </AccordionTrigger>
             <AccordionContent className="px-4 text-base">
@@ -102,13 +102,15 @@ export default function FAQs() {
             value="item-6"
             className="mb-2 border rounded-lg bg-gradient-to-br from-background to-foreground/10 border-border/20 backdrop-blur-sm"
           >
-            <AccordionTrigger className="p-4 text-white">
+            <AccordionTrigger className="p-4 text-left text-white text-balance">
               Is Firestarta free?
             </AccordionTrigger>
             <AccordionContent className="px-4 text-base">
-              Yes currently Firestarta is 100% free and open-source. However
-              there are plans to turn Firestarta into a premium product in the
-              near future.
+              Yes currently Firestarta is 100% free and open-source.{" "}
+              <b className="text-indigo-300">
+                However there are plans to turn Firestarta into a premium
+                product in the near future.
+              </b>
             </AccordionContent>
           </AccordionItem>
         </Accordion>

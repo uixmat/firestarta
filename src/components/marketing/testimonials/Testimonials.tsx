@@ -15,7 +15,7 @@ import { Star } from "lucide-react";
 export default function Testimonials() {
   return (
     <div className="max-w-5xl mx-auto">
-      <Section>
+      <Section size="md">
         <SectionHeader
           title={
             <>

@@ -34,7 +34,7 @@ export default async function AccountPage() {
 
   return (
     <div className="container py-20">
-      <Section>
+      <Section size="sm">
         <Card>
           <CardHeader>
             <CardTitle>Your account</CardTitle>
@@ -50,7 +50,7 @@ export default async function AccountPage() {
         </Card>
       </Section>
 
-      <Section>
+      <Section size="sm">
         <Card>
           <CardHeader>
             <CardTitle>Edit information</CardTitle>
@@ -62,7 +62,7 @@ export default async function AccountPage() {
         </Card>
       </Section>
 
-      <Section>
+      <Section size="sm">
         <Card>
           <CardHeader>
             <CardTitle>Danger zone</CardTitle>

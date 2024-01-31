@@ -60,7 +60,12 @@ export default async function Header() {
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" sideOffset={2} alignOffset={-5}>
+              <DropdownMenuContent
+                align="end"
+                sideOffset={2}
+                alignOffset={-5}
+                className="border-border/20"
+              >
                 <DropdownMenuLabel>
                   <p>{session?.user?.name}</p>
                   <p className="text-xs font-normal text-foreground/60">

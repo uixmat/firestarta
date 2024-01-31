@@ -15,7 +15,7 @@ import ShadcnuiLogo from "@/components/logos/shadcnui";
 
 export default function Features() {
   return (
-    <Section>
+    <Section size="md">
       <SectionHeader
         title={
           <>

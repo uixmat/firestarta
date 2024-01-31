@@ -56,7 +56,7 @@ export default function Home() {
         <Button asChild>
           <Link href="https://github.com/mattsince87/nextauth-prisma">
             <Github className="h-4" />
-            Get started now
+            Start your SaaS now!
           </Link>
         </Button>
       </Hero>

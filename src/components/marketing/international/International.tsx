@@ -7,7 +7,7 @@ import NextintlLogo from "@/components/logos/nextintl";
 export default function International() {
   return (
     <div className="max-w-4xl mx-auto">
-      <Section>
+      <Section size="md">
         <SectionHeader
           title={
             <>

@@ -19,7 +19,7 @@ import {
 export default function Integrations() {
   return (
     <div className="max-w-6xl mx-auto">
-      <Section>
+      <Section size="md">
         <SectionHeader
           title={
             <>
@@ -35,32 +35,34 @@ export default function Integrations() {
           }
         />
         <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-6">
-          <Card className="md:grid-cols-1 lg:col-span-2">
-            <div className="rounded-lg bg-gradient-to-br from-blue-600/20 via-transparent to-transparent">
-              <CardHeader>
+          <Card className="relative flex overflow-hidden md:grid-cols-1 lg:col-span-2 bg-background/70 backdrop-blur-sm border-border/20">
+            <div className="absolute w-[170px] h-[170px] bg-purple-600/30 rounded-full -top-7 -left-7 z-[0] blur-2xl" />
+            <div className="rounded-lg bg-gradient-to-br from-blue-600/20 via-indigo-500/10 to-transparent">
+              <CardHeader className="relative">
                 <NextAuthLogo
                   variant="symbol"
-                  className="self-start mb-2 h-14"
+                  className="relative self-start mb-2 h-14"
                 />
                 <CardTitle className="text-white text-md">
                   Authentication
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="relative">
                 <p>
                   Firestarta uses NextAuth with built in support for OAuth 1.0
                   &amp; 2.0 social logins and magic links.
                 </p>
               </CardContent>
-              <CardFooter>
+              <CardFooter className="relative">
                 <NextAuthLogo className="self-start h-6" />
               </CardFooter>
             </div>
           </Card>
 
-          <Card className="md:grid-cols-1 lg:col-span-2">
-            <div className="rounded-lg bg-gradient-to-br from-blue-600/20 via-transparent to-transparent">
-              <CardHeader>
+          <Card className="relative flex overflow-hidden md:grid-cols-1 lg:col-span-2 bg-background/70 backdrop-blur-sm border-border/20">
+            <div className="absolute w-[170px] h-[170px] bg-purple-600/30 rounded-full -top-7 -left-7 z-[0] blur-2xl" />
+            <div className="rounded-lg bg-gradient-to-br from-blue-600/20 via-indigo-500/10 to-transparent">
+              <CardHeader className="relative">
                 <LemonSqueezyLogo
                   variant="symbol"
                   className="self-start mb-2 h-14"
@@ -69,21 +71,22 @@ export default function Integrations() {
                   Subscriptions
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="relative">
                 <p>
                   Easy database management with automated migrations,
                   type-safety and easy relational mapping.
                 </p>
               </CardContent>
-              <CardFooter>
+              <CardFooter className="relative">
                 <LemonSqueezyLogo className="self-start" variant="color" />
               </CardFooter>
             </div>
           </Card>
 
-          <Card className="md:grid-cols-1 lg:col-span-2">
-            <div className="rounded-lg bg-gradient-to-br from-blue-600/20 via-transparent to-transparent">
-              <CardHeader>
+          <Card className="relative flex overflow-hidden md:grid-cols-1 lg:col-span-2 bg-background/70 backdrop-blur-sm border-border/20">
+            <div className="absolute w-[170px] h-[170px] bg-purple-600/30 rounded-full -top-7 -left-7 z-[0] blur-2xl" />
+            <div className="rounded-lg bg-gradient-to-br from-blue-600/20 via-indigo-500/10 to-transparent">
+              <CardHeader className="relative">
                 <TailwindLogo
                   variant="symbol"
                   className="self-start mb-2 h-14"
@@ -92,52 +95,54 @@ export default function Integrations() {
                   Beautifully themed
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="relative">
                 <p>
                   The simple to use static blog allows you to push articles
                   quickly and easily without the hastle of a CMS.
                 </p>
               </CardContent>
-              <CardFooter className="flex items-center gap-3 text-white">
+              <CardFooter className="relative flex items-center gap-3 text-white">
                 <TailwindLogo variant="color" className="self-start" />
                 <ShadcnuiLogo className="self-start" fill="currentColor" />
               </CardFooter>
             </div>
           </Card>
 
-          <Card className="md:grid-cols-1 lg:col-span-3">
-            <div className="rounded-lg bg-gradient-to-br from-blue-600/20 via-transparent to-transparent">
-              <CardHeader>
+          <Card className="relative flex overflow-hidden md:grid-cols-1 lg:col-span-2 bg-background/70 backdrop-blur-sm border-border/20">
+            <div className="absolute w-[170px] h-[170px] bg-purple-600/30 rounded-full -top-7 -left-7 z-[0] blur-2xl" />
+            <div className="rounded-lg bg-gradient-to-br from-blue-600/20 via-indigo-500/10 to-transparent">
+              <CardHeader className="relative">
                 <ResendLogo variant="symbol" className="self-start mb-2 h-14" />
                 <CardTitle className="text-white text-md">
                   Email provider
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="relative">
                 <p>
                   Firestarta is packed with custom components to get your site
                   up &amp; running and looking good, quickly.
                 </p>
               </CardContent>
-              <CardFooter>
+              <CardFooter className="relative">
                 <ResendLogo className="self-start" />
               </CardFooter>
             </div>
           </Card>
 
-          <Card className="md:grid-cols-1 lg:col-span-3">
-            <div className="rounded-lg bg-gradient-to-br from-blue-600/20 via-transparent to-transparent">
-              <CardHeader>
+          <Card className="relative flex overflow-hidden md:grid-cols-1 lg:col-span-2 bg-background/70 backdrop-blur-sm border-border/20">
+            <div className="absolute w-[170px] h-[170px] bg-purple-600/30 rounded-full -top-7 -left-7 z-[0] blur-2xl" />
+            <div className="rounded-lg bg-gradient-to-br from-blue-600/20 via-indigo-500/10 to-transparent">
+              <CardHeader className="relative">
                 <NextLogo variant="symbol" className="self-start mb-2 h-14" />
                 <CardTitle className="text-white text-md">Next.js 14</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="relative">
                 <p>
                   Quickly copy &amp; paste beautiful components that are
                   accessible and easily customisable.
                 </p>
               </CardContent>
-              <CardFooter>
+              <CardFooter className="relative">
                 <NextLogo className="self-start text-white" />
               </CardFooter>
             </div>
