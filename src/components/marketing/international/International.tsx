@@ -17,8 +17,8 @@ export default function International() {
             </>
           }
         />
-        <div className="grid max-w-5xl grid-cols-2 gap-6 mx-auto">
-          <div className="flex">
+        <div className="grid max-w-5xl gap-6 mx-auto md:grid-cols-2">
+          <div className="flex order-2 overflow-hidden md:order-1">
             <div className="flex flex-col w-full border rounded-lg bg-gradient-to-b from-slate-800/60 to-card/20 backdrop-blur-sm border-border/20">
               <Tabs defaultValue="one" className="w-full">
                 <div className="relative flex justify-center w-full p-4">
@@ -28,20 +28,20 @@ export default function International() {
                   <TabsList className="h-auto p-0 mx-auto bg-transparent text-inherit -my-1.5">
                     <TabsTrigger
                       value="one"
-                      className="m-0 text-base data-[state=active]:bg-background/50 data-[state=active]:text-purple-400"
+                      className="m-0 text-sm md:text-base data-[state=active]:bg-background/50 data-[state=active]:text-purple-400"
                     >
                       <b>en.json</b>
                     </TabsTrigger>
                     <TabsTrigger
                       value="two"
-                      className="m-0 text-base data-[state=active]:bg-background/50 data-[state=active]:text-purple-400"
+                      className="m-0 text-sm md:text-base data-[state=active]:bg-background/50 data-[state=active]:text-purple-400"
                     >
                       <b>About.tsx</b>
                     </TabsTrigger>
                   </TabsList>
                 </div>
-                <TabsContent value="one">
-                  <code className="flex w-full p-4 pb-7 overflow-x:scroll">
+                <TabsContent value="one" className="w-full">
+                  <code className="flex w-full p-4 pb-7">
                     <pre className="overflow-x-scroll">
                       <span
                         data-number="1"
@@ -70,7 +70,7 @@ export default function International() {
                     </pre>
                   </code>
                 </TabsContent>
-                <TabsContent value="two">
+                <TabsContent value="two" className="w-full">
                   <code className="flex w-full p-4 pb-7">
                     <pre className="overflow-x-scroll">
                       <span
@@ -129,7 +129,7 @@ export default function International() {
               </Tabs>
             </div>
           </div>
-          <div className="flex flex-col items-center justify-center gap-6">
+          <div className="flex flex-col items-center justify-center order-1 gap-6 md:order-2">
             <div>
               <NextintlLogo className="h-9" />
             </div>

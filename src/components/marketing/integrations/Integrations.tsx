@@ -5,6 +5,7 @@ import NextAuthLogo from "@/components/logos/auth";
 import LemonSqueezyLogo from "@/components/logos/lemonsqueezy";
 import NextLogo from "@/components/logos/next";
 import ResendLogo from "@/components/logos/resend";
+import ShadcnuiLogo from "@/components/logos/shadcnui";
 import TailwindLogo from "@/components/logos/tailwind";
 
 import {
@@ -33,8 +34,8 @@ export default function Integrations() {
             </p>
           }
         />
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-6">
-          <Card className="col-span-2">
+        <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-6">
+          <Card className="md:grid-cols-1 lg:col-span-2">
             <div className="rounded-lg bg-gradient-to-br from-blue-600/20 via-transparent to-transparent">
               <CardHeader>
                 <NextAuthLogo
@@ -57,7 +58,7 @@ export default function Integrations() {
             </div>
           </Card>
 
-          <Card className="col-span-2">
+          <Card className="md:grid-cols-1 lg:col-span-2">
             <div className="rounded-lg bg-gradient-to-br from-blue-600/20 via-transparent to-transparent">
               <CardHeader>
                 <LemonSqueezyLogo
@@ -75,12 +76,12 @@ export default function Integrations() {
                 </p>
               </CardContent>
               <CardFooter>
-                <LemonSqueezyLogo className="self-start" />
+                <LemonSqueezyLogo className="self-start" variant="color" />
               </CardFooter>
             </div>
           </Card>
 
-          <Card className="col-span-2">
+          <Card className="md:grid-cols-1 lg:col-span-2">
             <div className="rounded-lg bg-gradient-to-br from-blue-600/20 via-transparent to-transparent">
               <CardHeader>
                 <TailwindLogo
@@ -97,16 +98,14 @@ export default function Integrations() {
                   quickly and easily without the hastle of a CMS.
                 </p>
               </CardContent>
-              <CardFooter>
-                <TailwindLogo
-                  variant="color"
-                  className="self-start text-white"
-                />
+              <CardFooter className="flex items-center gap-3 text-white">
+                <TailwindLogo variant="color" className="self-start" />
+                <ShadcnuiLogo className="self-start" fill="currentColor" />
               </CardFooter>
             </div>
           </Card>
 
-          <Card className="col-span-3">
+          <Card className="md:grid-cols-1 lg:col-span-3">
             <div className="rounded-lg bg-gradient-to-br from-blue-600/20 via-transparent to-transparent">
               <CardHeader>
                 <ResendLogo variant="symbol" className="self-start mb-2 h-14" />
@@ -126,7 +125,7 @@ export default function Integrations() {
             </div>
           </Card>
 
-          <Card className="col-span-3">
+          <Card className="md:grid-cols-1 lg:col-span-3">
             <div className="rounded-lg bg-gradient-to-br from-blue-600/20 via-transparent to-transparent">
               <CardHeader>
                 <NextLogo variant="symbol" className="self-start mb-2 h-14" />

@@ -17,6 +17,7 @@ import Integrations from "@/components/marketing/integrations/Integrations";
 import Databases from "@/components/marketing/databases/Databases";
 import FAQs from "@/components/marketing/faqs/FAQs";
 import International from "@/components/marketing/international/International";
+import LemonSqueezyLogo from "@/components/logos/lemonsqueezy";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL),
@@ -44,12 +45,13 @@ export default function Home() {
           </>
         }
       >
-        <div className="relative flex flex-wrap items-center justify-center gap-12 p-6 mb-10 text-xl">
-          <NextLogo />
-          <PrismaLogo fill="currentColor" />
-          <SupabaseLogo fill="currentColor" />
-          <ShadcnuiLogo fill="currentColor" />
-          <TailwindLogo />
+        <div className="relative grid items-center justify-center grid-cols-2 gap-12 p-6 mb-10 text-xl md:grid-cols-3 lg:grid-cols-6">
+          <NextLogo className="max-w-full" />
+          <PrismaLogo className="max-w-full" fill="currentColor" />
+          <SupabaseLogo className="max-w-full" variant="color" />
+          <ShadcnuiLogo className="max-w-full" fill="currentColor" />
+          <TailwindLogo className="max-w-full" variant="color" />
+          <LemonSqueezyLogo className="max-w-full" variant="color" />
         </div>
         <Button asChild>
           <Link href="https://github.com/mattsince87/nextauth-prisma">

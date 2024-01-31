@@ -20,7 +20,7 @@ export default function Databases() {
           </>
         }
       />
-      <div className="grid max-w-4xl grid-cols-2 gap-6 mx-auto">
+      <div className="grid w-full max-w-4xl gap-6 mx-auto md:grid-cols-2">
         <div className="flex flex-col items-center justify-center gap-6">
           <div>
             <PrismaLogo className="h-16 text-white" fill="currentColor" />
@@ -58,7 +58,7 @@ export default function Databases() {
             </Pill>
           </div>
         </div>
-        <div className="flex">
+        <div className="flex w-full overflow-hidden">
           <div className="flex flex-col w-full border rounded-lg bg-gradient-to-b from-slate-800/60 to-card/20 backdrop-blur-sm border-border/20">
             <div className="relative flex justify-center w-full p-4">
               <span className="absolute w-4 h-4 transition-all rounded-full left-4 top-5 bg-indigo-400/15 hover:bg-red-400" />
@@ -66,8 +66,8 @@ export default function Databases() {
               <span className="absolute w-4 h-4 transition-all rounded-full left-14 top-5 bg-indigo-400/15 hover:bg-green-400" />
               <b className="font-poppins">schema.prisma</b>
             </div>
-            <code className="flex w-full p-4 pb-7">
-              <pre className="overflow-x-scroll">
+            <code className="block w-full p-4 pb-7">
+              <pre className="w-full overflow-x-scroll">
                 <span
                   data-number="1"
                   className="block w-full font-medium before:content-[attr(data-number)] before:w-10 before:mr-4 before:inline-flex before:text-indigo-500 before:justify-center"
