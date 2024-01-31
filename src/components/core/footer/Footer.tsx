@@ -7,7 +7,7 @@ export default async function Footer() {
   return (
     <div className="container">
       <div className="max-w-5xl mx-auto">
-        <Section>
+        <Section size="sm">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
             <div className="flex flex-col gap-1">
               <Logo className="w-10 mb-5" />
