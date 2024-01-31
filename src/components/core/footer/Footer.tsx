@@ -10,8 +10,8 @@ export default async function Footer() {
         <Section size="sm">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
             <div className="flex flex-col gap-1">
-              <Logo className="self-start mb-5 h-15" />
-              <h5 className="text-white">
+              <h5 className="flex items-center gap-2 mb-2 text-white">
+                <Logo className="h-5" />{" "}
                 <b className="font-poppins">Firestarta</b>
               </h5>
               <p>&copy; {year}</p>
