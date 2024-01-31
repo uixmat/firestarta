@@ -25,7 +25,7 @@ export default function Features() {
           </>
         }
       />
-      <div className="grid max-w-3xl grid-cols-3 mx-auto">
+      <div className="grid max-w-3xl grid-cols-1 gap-6 mx-auto sm:grid-cols-3">
         <div className="flex flex-col items-center justify-center gap-2">
           <Pill>
             <Fingerprint className="h-4 text-violet-400" />

@@ -27,7 +27,7 @@ export default function FAQs() {
         >
           <AccordionItem
             value="item-1"
-            className="mb-2 border rounded-lg bg-gradient-to-br from-background to-foreground/10 border-border/20"
+            className="mb-2 border rounded-lg bg-gradient-to-br from-background to-foreground/10 border-border/20 backdrop-blur-sm"
           >
             <AccordionTrigger className="p-4 text-white">
               What is Firestarta?
@@ -41,7 +41,7 @@ export default function FAQs() {
           </AccordionItem>
           <AccordionItem
             value="item-2"
-            className="mb-2 border rounded-lg bg-gradient-to-br from-background to-foreground/10 border-border/20"
+            className="mb-2 border rounded-lg bg-gradient-to-br from-background to-foreground/10 border-border/20 backdrop-blur-sm"
           >
             <AccordionTrigger className="p-4 text-white">
               Who needs Firestarta?
@@ -54,7 +54,7 @@ export default function FAQs() {
           </AccordionItem>
           <AccordionItem
             value="item-3"
-            className="mb-2 border rounded-lg bg-gradient-to-br from-background to-foreground/10 border-border/20"
+            className="mb-2 border rounded-lg bg-gradient-to-br from-background to-foreground/10 border-border/20 backdrop-blur-sm"
           >
             <AccordionTrigger className="p-4 text-white">
               Is Firestarta scalable?
@@ -67,7 +67,7 @@ export default function FAQs() {
           </AccordionItem>
           <AccordionItem
             value="item-4"
-            className="mb-2 border rounded-lg bg-gradient-to-br from-background to-foreground/10 border-border/20"
+            className="mb-2 border rounded-lg bg-gradient-to-br from-background to-foreground/10 border-border/20 backdrop-blur-sm"
           >
             <AccordionTrigger className="p-4 text-white">
               Is Firestarta maintained regularly?
@@ -80,7 +80,7 @@ export default function FAQs() {
           </AccordionItem>
           <AccordionItem
             value="item-5"
-            className="mb-2 border rounded-lg bg-gradient-to-br from-background to-foreground/10 border-border/20"
+            className="mb-2 border rounded-lg bg-gradient-to-br from-background to-foreground/10 border-border/20 backdrop-blur-sm"
           >
             <AccordionTrigger className="p-4 text-white">
               Will there be future features?
@@ -100,7 +100,7 @@ export default function FAQs() {
           </AccordionItem>
           <AccordionItem
             value="item-6"
-            className="mb-2 border rounded-lg bg-gradient-to-br from-background to-foreground/10 border-border/20"
+            className="mb-2 border rounded-lg bg-gradient-to-br from-background to-foreground/10 border-border/20 backdrop-blur-sm"
           >
             <AccordionTrigger className="p-4 text-white">
               Is Firestarta free?

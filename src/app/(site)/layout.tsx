@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/sonner";
 import Header from "@/components/core/header/Header";
 import { ThemeProvider } from "@/components/core/provider/ThemeProvider";
 import { poppins } from "@/lib/utils/fonts";
+import Footer from "@/components/core/footer/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL),
@@ -29,6 +30,7 @@ export default function DefaultLayout(props: {
           <NextAuthProvider>
             <Header />
             {props.children}
+            <Footer />
             {props.modal}
             <Toaster position="top-center" richColors />
           </NextAuthProvider>
