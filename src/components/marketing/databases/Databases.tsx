@@ -67,7 +67,7 @@ export default function Databases() {
               <b className="font-poppins">schema.prisma</b>
             </div>
             <code className="flex w-full p-4 pb-7">
-              <pre>
+              <pre className="overflow-x-scroll">
                 <span
                   data-number="1"
                   className="block w-full font-medium before:content-[attr(data-number)] before:w-10 before:mr-4 before:inline-flex before:text-indigo-500 before:justify-center"
