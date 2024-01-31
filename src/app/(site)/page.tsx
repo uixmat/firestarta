@@ -34,24 +34,32 @@ export default function Home() {
         title="Build faster, build better!"
         description={
           <>
-            <p>
-              Bootstrap your next application with tools you&apos;re familiar
-              with.
-            </p>
-            <p>
-              Built on Next.js & Prisma for scalability with full authentication
-              using NextAuth out the box.
+            <p className="text-lg text-pretty">
+              Bootstrap your next SaaS application using tools you&apos;re
+              familiar with.
             </p>
           </>
         }
       >
-        <div className="relative grid items-center justify-center grid-cols-2 gap-12 p-6 mb-10 text-xl md:grid-cols-3 lg:grid-cols-6">
-          <NextLogo className="max-w-full" />
-          <PrismaLogo className="max-w-full" fill="currentColor" />
-          <SupabaseLogo className="max-w-full" variant="color" />
-          <ShadcnuiLogo className="max-w-full" fill="currentColor" />
-          <TailwindLogo className="max-w-full" variant="color" />
-          <LemonSqueezyLogo className="max-w-full" variant="color" />
+        <div className="relative grid grid-cols-2 gap-12 p-6 mb-10 text-xl md:grid-cols-3 lg:grid-cols-6">
+          <div className="flex items-center justify-center">
+            <NextLogo className="max-w-full" />
+          </div>
+          <div className="flex items-center justify-center">
+            <PrismaLogo className="max-w-full" fill="currentColor" />
+          </div>
+          <div className="flex items-center justify-center">
+            <SupabaseLogo className="max-w-full" variant="color" />
+          </div>
+          <div className="flex items-center justify-center">
+            <ShadcnuiLogo className="max-w-full" fill="currentColor" />
+          </div>
+          <div className="flex items-center justify-center">
+            <TailwindLogo className="max-w-full" variant="color" />
+          </div>
+          <div className="flex items-center justify-center">
+            <LemonSqueezyLogo className="max-w-full" variant="color" />
+          </div>
         </div>
         <Button asChild>
           <Link href="https://github.com/mattsince87/nextauth-prisma">
