@@ -108,7 +108,7 @@ export default function Integrations() {
             </div>
           </Card>
 
-          <Card className="relative flex overflow-hidden md:grid-cols-1 lg:col-span-2 bg-background/70 backdrop-blur-sm border-border/20">
+          <Card className="relative flex overflow-hidden md:grid-cols-1 lg:col-span-3 bg-background/70 backdrop-blur-sm border-border/20">
             <div className="absolute w-[170px] h-[170px] bg-purple-600/30 rounded-full -top-7 -left-7 z-[0] blur-2xl" />
             <div className="rounded-lg bg-gradient-to-br from-blue-600/20 via-indigo-500/10 to-transparent">
               <CardHeader className="relative">
@@ -129,7 +129,7 @@ export default function Integrations() {
             </div>
           </Card>
 
-          <Card className="relative flex overflow-hidden md:grid-cols-1 lg:col-span-2 bg-background/70 backdrop-blur-sm border-border/20">
+          <Card className="relative flex overflow-hidden md:grid-cols-1 lg:col-span-3 bg-background/70 backdrop-blur-sm border-border/20">
             <div className="absolute w-[170px] h-[170px] bg-purple-600/30 rounded-full -top-7 -left-7 z-[0] blur-2xl" />
             <div className="rounded-lg bg-gradient-to-br from-blue-600/20 via-indigo-500/10 to-transparent">
               <CardHeader className="relative">
