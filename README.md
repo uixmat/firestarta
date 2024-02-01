@@ -72,7 +72,7 @@ LEMONSQUEEZY_STORE_ID=
 LEMONSQUEEZY_API_KEY=
 LEMONSQUEEZY_WEBHOOK_SECRET=
 ```
-
+### Set up GitHub Authentication
 > [!TIP] 
 > To setup Github visit [https://github.com/settings/apps](https://github.com/settings/apps) to create a new app. the callback URL should be: `[origin]/api/auth/callback/[provider]` as stated in the [NextAuth](https://next-auth.js.org/configuration/providers/oauth) documentation.
 
