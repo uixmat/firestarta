@@ -14,6 +14,8 @@ This repository serves as a starting point (or boilerplate) for any Next.js SaaS
 [![Made with Supabase](https://supabase.com/badge-made-with-supabase-dark.svg)](https://supabase.com)
 
 ## The stack
+> Changes or additions to teh stack will be updated here
+
 - Next.js
 - NextAuth
 - Typescript
@@ -25,7 +27,6 @@ This repository serves as a starting point (or boilerplate) for any Next.js SaaS
 - Lucide icons
 
 ## Features
-
 > Features are developed in no specific order
 
 - [x] App directory
