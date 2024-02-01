@@ -51,9 +51,6 @@ This repository serves as a starting point (or boilerplate) for any Next.js SaaS
 - [ ] Blog
 
 ## Preview
-
-<picture>
-
 <img alt="Firestarta.dev" src="https://github.com/uixmat/firestarta-ghassets/blob/main/assets/hero.png" />
 
 ## Setup
