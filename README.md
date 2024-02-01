@@ -1,4 +1,6 @@
-# NextAuth SaaS Boilerplate with OAuth & Route Handlers, Prisma, Supabase (Postgres), Tailwind, shadcn/ui some Sass & Lemon Squeezy Subscriptions.
+> Currently switching to Supavisor IPv6
+
+# Firestarta.dev - A Next.js SaaS Boilerplate
 
 This repository serves as a starting point (or boilerplate) for any Next.js SaaS project that requires user authentication and management and subscription payments. It currently uses Prisma with a Postgres database and is being built out using shadcn/ui components besides custom sass components when needed.
 
