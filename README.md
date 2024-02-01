@@ -1,6 +1,9 @@
-> Currently switching to Supavisor IPv6
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://github.com/uixmat/firestarta-ghassets/blob/main/assets/logo-dark.png">
+<img alt="Firestarta.dev" src="https://github.com/uixmat/firestarta-ghassets/blob/main/assets/logo-light.png" width="280">
+</picture>
 
-# Firestarta.dev - A Next.js SaaS Boilerplate
+## A Next.js SaaS Boilerplate
 
 This repository serves as a starting point (or boilerplate) for any Next.js SaaS project that requires user authentication and management and subscription payments. It currently uses Prisma with a Postgres database and is being built out using shadcn/ui components besides custom sass components when needed.
 
@@ -15,12 +18,10 @@ This repository serves as a starting point (or boilerplate) for any Next.js SaaS
 - NextAuth
 - Typescript
 - Prisma
-- Supabase (Psotgres)
+- Supabase (Postgres)
 - Lemon Squeezy (Subscriptions)
 - Sass
-- Tailwindcss
 - shadcn/ui
-- Sonner toasts
 - Lucide icons
 
 ## Current features
@@ -40,6 +41,8 @@ This repository serves as a starting point (or boilerplate) for any Next.js SaaS
 
 > The roadmap is not in a specific order of development
 
+- [ ] Light mode (Theme)
+- [ ] Dasboard layouts
 - [ ] Cookies
 - [ ] Internationalisation (Multi-lingual)
 - [ ] Custom errors
