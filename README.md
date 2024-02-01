@@ -54,7 +54,7 @@ This repository serves as a starting point (or boilerplate) for any Next.js SaaS
 
 <picture>
 
-<img alt="Firestarta.dev" src="https://github.com/uixmat/firestarta-ghassets/blob/main/assets/hero.png">
+<img alt="Firestarta.dev" src="https://github.com/uixmat/firestarta-ghassets/blob/main/assets/hero.png" />
 
 ## Setup
 Create a `.env.local` file and generate NextAuth secret using:
