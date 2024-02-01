@@ -3,7 +3,7 @@
 <img alt="Firestarta.dev" src="https://github.com/uixmat/firestarta-ghassets/blob/main/assets/logo-light.png" width="320">
 </picture>
 
-## A Next.js SaaS Boilerplate
+### A Next.js SaaS Boilerplate
 
 This repository serves as a starting point (or boilerplate) for any Next.js SaaS project that requires user authentication and management and subscription payments. It currently uses Prisma with a Postgres database and is being built out using shadcn/ui components besides custom sass components when needed.
 
