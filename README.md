@@ -1,6 +1,6 @@
 <picture>
 <source media="(prefers-color-scheme: dark)" srcset="https://github.com/uixmat/firestarta-ghassets/blob/main/assets/logo-dark.png">
-<img alt="Firestarta.dev" src="https://github.com/uixmat/firestarta-ghassets/blob/main/assets/logo-light.png" width="280">
+<img alt="Firestarta.dev" src="https://github.com/uixmat/firestarta-ghassets/blob/main/assets/logo-light.png" width="320">
 </picture>
 
 ## A Next.js SaaS Boilerplate
