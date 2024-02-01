@@ -24,23 +24,21 @@ This repository serves as a starting point (or boilerplate) for any Next.js SaaS
 - shadcn/ui
 - Lucide icons
 
-## Current features
-- App directory
-- Route Groups
-- Intercepting & Parallel Routes
-- CSR/SSR
-- Subscriptions with Lemon Squeezy
-- Basic SEO
-- User Profiles
-- Account Pages
-- Custom Components
-- Light/Dark Modes
-- Responsive Design
+## Features
 
-## Roadmap 
+> Features are developed in no specific order
 
-> The roadmap is not in a specific order of development
-
+- [x] App directory
+- [x] Route Groups
+- [x] Intercepting & Parallel Routes
+- [x] CSR/SSR
+- [x] Subscriptions with Lemon Squeezy
+- [x] Basic SEO
+- [x] User Profiles
+- [x] Account Pages
+- [x] Custom Components
+- [x] Light/Dark Modes
+- [x] Responsive Design
 - [ ] Light mode (Theme)
 - [ ] Dasboard layouts
 - [ ] Cookies
