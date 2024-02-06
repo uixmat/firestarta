@@ -10,7 +10,7 @@ interface Props {
 export const DeleteAccountButton = ({ email }: Props) => {
   const handleDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/user/${email}`, {
+      const response = await fetch(`/api/user/${email}`, {
         method: "DELETE",
       });
       if (response.ok) {
