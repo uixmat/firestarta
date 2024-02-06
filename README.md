@@ -13,6 +13,9 @@ This repository serves as a starting point (or boilerplate) for any Next.js SaaS
 
 [![Made with Supabase](https://supabase.com/badge-made-with-supabase-dark.svg)](https://supabase.com)
 
+> [!NOTE]
+> Now using [yarn 4.1.0](https://yarnpkg.com/getting-started/install) through [Corepack](https://yarnpkg.com/corepack).
+
 ## The stack
 > Changes or additions to teh stack will be updated here
 
