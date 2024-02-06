@@ -57,7 +57,7 @@ export async function UsersList() {
                       {user.name}
                     </p>
                     <p className="block w-full overflow-hidden text-sm text-muted-foreground whitespace-nowrap text-ellipsis">
-                      {user.email}
+                      {user.jobTitle ? user.jobTitle : "Firestarta"}
                     </p>
                   </div>
                 </div>
