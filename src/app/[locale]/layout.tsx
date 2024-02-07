@@ -20,12 +20,12 @@ interface LocaleLayoutProps {
 
 export default function LocaleLayout({
   children,
-  params: { locale },
+  params,
   modal,
 }: LocaleLayoutProps) {
   return (
     <html
-      lang={locale}
+      lang={params.locale}
       className={`${poppins.variable} dark`}
       suppressHydrationWarning
     >
