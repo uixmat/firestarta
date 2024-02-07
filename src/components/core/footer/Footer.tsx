@@ -1,5 +1,5 @@
 import { Section } from "@/components/core/section/Section";
-import Link from "next/link";
+import { Link } from "@/lib/intl/navigation";
 import Logo from "@/components/core/brand/Logo";
 
 export default async function Footer() {

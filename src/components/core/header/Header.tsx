@@ -1,6 +1,6 @@
 import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
-import Link from "next/link";
+import { Link } from "@/lib/intl/navigation";
 import { SignOutButton } from "./SignOutButton";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -14,8 +14,8 @@ import {
 import { UserRound, UserRoundCog } from "lucide-react";
 import { poppins } from "@/lib/utils/fonts";
 import Logo from "../brand/Logo";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { Switch } from "../theme/Switch";
+import { Button } from "@/components/ui/button";
+import Lang from "@/components/core/lang/Lang";
 
 export default async function Header() {
   const session = await getServerSession(authOptions);
@@ -42,7 +42,7 @@ export default async function Header() {
           </Link>
         </nav>
         <div className="relative flex items-center justify-between flex-1 gap-2 space-x-2 text-sm md:justify-end">
-          <Switch />
+          {/* Sign In */}
           {!session && (
             <>
               <Button asChild size="sm">
@@ -52,6 +52,11 @@ export default async function Header() {
               </Button>
             </>
           )}
+
+          {/* Language Switcher */}
+          <Lang />
+
+          {/* User Menu */}
           {session && (
             <DropdownMenu>
               <DropdownMenuTrigger className="outline-none">
@@ -87,6 +92,7 @@ export default async function Header() {
                     </span>
                   </Link>
                 </DropdownMenuItem>
+                <DropdownMenuSeparator />
                 <DropdownMenuItem>
                   <SignOutButton />
                 </DropdownMenuItem>

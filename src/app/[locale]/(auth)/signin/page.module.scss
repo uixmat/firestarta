@@ -1,0 +1,9 @@
+.bgGrid {
+  background: transparent;
+  background-image: 
+    linear-gradient(90deg, transparent 0%, hsl(var(--background)) 90%),
+    linear-gradient(theme('colors.indigo.300 / 20%') 1px, transparent 1px), 
+    linear-gradient(90deg, theme('colors.indigo.300 / 20%') 1px, transparent 1px);
+  background-size: 100% 100%, 50px 50px, 50px 50px;
+  background-position: -1px center;
+}

@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Github } from "lucide-react";
 import type { Metadata } from "next";
-import GradientText from "@/components/core/gradient-text/GradientText";
+import { useTranslations } from "next-intl";
 
 import NextLogo from "@/components/logos/next";
 import PrismaLogo from "@/components/logos/prisma";
@@ -27,19 +27,13 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  const t = useTranslations("Index");
   return (
     <>
       <Hero
         size="lg"
-        title="Build faster, build better!"
-        description={
-          <>
-            <p className="text-lg text-pretty">
-              Bootstrap your next SaaS application using tools you&apos;re
-              familiar with.
-            </p>
-          </>
-        }
+        title={t("title")}
+        description={<p className="text-lg text-pretty">{t("subtitle")}</p>}
       >
         <div className="relative grid grid-cols-2 gap-12 p-6 mb-10 text-xl md:grid-cols-3 lg:grid-cols-6">
           <div className="flex items-center justify-center">

@@ -23,7 +23,7 @@ const NextAuthLogo: React.FC<LogoProps> = ({
         <path
           d="M28.3003 56C15.4669 51.7223 10.002 39.6667 10.002 39.6667L53.1892 7.38892C53.1892 42.8556 36.5966 54.5741 28.3003 56Z"
           fill="#9575F2"
-          fill-opacity="0.62"
+          fillOpacity="0.62"
         />
         <defs>
           <linearGradient
