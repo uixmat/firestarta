@@ -4,17 +4,20 @@ import { poppins } from "@/lib/utils/fonts";
 
 import "@/styles/globals.css";
 
-interface LocaleLayoutProps {
-  children: React.ReactNode;
-  modal: React.ReactNode;
-  // params: { locale: string };
-}
+// interface LocaleLayoutProps {
+//   children: React.ReactNode;
+//   modal: React.ReactNode;
+//   // params: { locale: string };
+// }
 
 export default function LocaleLayout({
   children,
   // params,
   modal,
-}: LocaleLayoutProps) {
+}: {
+  children: React.ReactNode;
+  modal: React.ReactNode;
+}) {
   return (
     <html
       // lang={params.locale}
