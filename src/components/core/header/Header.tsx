@@ -53,9 +53,6 @@ export default async function Header() {
             </>
           )}
 
-          {/* Language Switcher */}
-          <Lang />
-
           {/* User Menu */}
           {session && (
             <DropdownMenu>
@@ -92,7 +89,13 @@ export default async function Header() {
                     </span>
                   </Link>
                 </DropdownMenuItem>
+                {/* Language Switcher */}
                 <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <Lang />
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                {/* Sign Out */}
                 <DropdownMenuItem>
                   <SignOutButton />
                 </DropdownMenuItem>
