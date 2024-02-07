@@ -12,15 +12,17 @@ export const metadata: Metadata = {
     "Firestarta.dev is a Next.js bootstrap for your future projects with Authentication, Prisma and Postgres.",
 };
 
+interface LocaleLayoutProps {
+  children: React.ReactNode;
+  modal: React.ReactNode;
+  params: { locale: string };
+}
+
 export default function LocaleLayout({
   children,
   params: { locale },
   modal,
-}: {
-  children: React.ReactNode;
-  modal: React.ReactNode;
-  params: { locale: string };
-}) {
+}: LocaleLayoutProps) {
   return (
     <html
       lang={locale}
