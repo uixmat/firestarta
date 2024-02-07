@@ -4,23 +4,17 @@ import { poppins } from "@/lib/utils/fonts";
 
 import "@/styles/globals.css";
 
-// interface LocaleLayoutProps {
-//   children: React.ReactNode;
-//   modal: React.ReactNode;
-//   // params: { locale: string };
-// }
-
-export default function LocaleLayout({
-  children,
-  // params,
-  modal,
-}: {
-  children: React.ReactNode;
+type LayoutProps = {
+  params: { locale: string };
   modal: React.ReactNode;
-}) {
+  children: React.ReactNode;
+};
+
+export default function RootLayout({ params, children, modal }: LayoutProps) {
+  const { locale } = params;
   return (
     <html
-      // lang={params.locale}
+      lang={locale}
       className={`${poppins.variable} dark`}
       suppressHydrationWarning
     >
