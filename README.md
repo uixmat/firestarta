@@ -41,12 +41,12 @@ This repository serves as a starting point (or boilerplate) for any Next.js SaaS
 - [x] User Profiles
 - [x] Account Pages
 - [x] Custom Components
-- [x] Light/Dark Modes
+- [x] ~~Light/Dark Modes~~ _temporarily removed_
 - [x] Responsive Design
 - [ ] Light mode (Theme)
 - [ ] Dasboard layouts
 - [ ] Cookies
-- [ ] Internationalisation (Multi-lingual)
+- [x] Internationalisation (Multi-lingual)
 - [ ] Custom errors
 - [ ] Loading states `loading.tsx`
 - [ ] Sitemap
