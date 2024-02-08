@@ -14,7 +14,10 @@ export default function LocaleLayout({
   return (
     <html lang={locale} className={`${poppins.variable} dark`}>
       <body>
-        <NextAuthProvider>{children}</NextAuthProvider>
+        <NextAuthProvider>
+          {children}
+          <Toaster position="top-center" richColors />
+        </NextAuthProvider>
       </body>
     </html>
   );
