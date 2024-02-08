@@ -12,8 +12,10 @@ export default function LocaleLayout({
   params: { locale: string };
 }) {
   return (
-    <html lang={locale}>
-      <body>{children}</body>
+    <html lang={locale} className={`${poppins.variable} dark`}>
+      <body>
+        <NextAuthProvider>{children}</NextAuthProvider>
+      </body>
     </html>
   );
 }
