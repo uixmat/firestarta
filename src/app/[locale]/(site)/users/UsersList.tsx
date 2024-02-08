@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/lib/intl/navigation";
 import { getUsers } from "@/lib/prisma/users";
 import { Section } from "@/components/core/section/Section";
 import {
