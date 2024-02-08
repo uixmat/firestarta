@@ -6,11 +6,11 @@ import "@/styles/globals.css";
 
 export default function LocaleLayout({
   children,
-  modal,
+  // modal,
   params: { locale },
 }: {
   children: React.ReactNode;
-  modal: React.ReactNode;
+  // modal: React.ReactNode; Breaks build
   params: { locale: string };
 }) {
   return (
@@ -18,35 +18,10 @@ export default function LocaleLayout({
       <body className="min-h-screen font-sans antialiased bg-background dark">
         <NextAuthProvider>
           {children}
-          {modal}
+          {/* {modal} */}
           <Toaster position="top-center" richColors />
         </NextAuthProvider>
       </body>
     </html>
   );
 }
-
-// type LayoutProps = {
-//   params: { locale: string };
-//   modal: React.ReactNode;
-//   children: React.ReactNode;
-// };
-
-// export default function RootLayout({ params, children, modal }: LayoutProps) {
-//   const { locale } = params;
-//   return (
-//     <html
-//       lang={locale}
-//       className={`${poppins.variable} dark`}
-//       suppressHydrationWarning
-//     >
-//       <body className="min-h-screen font-sans antialiased bg-background dark">
-//         <NextAuthProvider>
-//           {children}
-//           {modal}
-//           <Toaster position="top-center" richColors />
-//         </NextAuthProvider>
-//       </body>
-//     </html>
-//   );
-// }
