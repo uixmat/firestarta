@@ -1,5 +1,6 @@
 import { Link } from "@/lib/intl/navigation";
 import { getUsers } from "@/lib/prisma/users";
+
 import { Section } from "@/components/core/section/Section";
 import {
   Card,
@@ -9,6 +10,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
+import { getInitials } from "@/lib/utils/initials";
 
 export async function UsersList() {
   const response = await getUsers();
@@ -50,7 +53,9 @@ export async function UsersList() {
                 <div className="flex items-center space-x-4">
                   <Avatar>
                     <AvatarImage src={user.image as string} />
-                    <AvatarFallback>CN</AvatarFallback>
+                    <AvatarFallback className="uppercase">
+                      {getInitials(user.name)}
+                    </AvatarFallback>
                   </Avatar>
                   <div className="flex flex-col w-full overflow-hidden">
                     <p className="text-sm font-medium leading-none">
