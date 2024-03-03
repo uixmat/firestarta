@@ -15,7 +15,7 @@ export default function LocaleLayout({
 }) {
   return (
     <html lang={locale} className={`${poppins.variable} dark`}>
-      <body className="min-h-screen font-sans antialiased bg-background dark">
+      <body className="flex flex-col min-h-screen font-sans antialiased bg-background dark">
         <NextAuthProvider>
           {children}
           {/* {modal} */}
