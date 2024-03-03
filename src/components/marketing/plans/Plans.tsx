@@ -53,13 +53,11 @@ export const Plans = async () => {
             >
               <CardHeader>
                 <CardTitle>{product.attributes.name}</CardTitle>
-                <CardDescription>
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: product.attributes.description,
-                    }}
-                  />
-                </CardDescription>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: product.attributes.description,
+                  }}
+                />
               </CardHeader>
               <CardContent className="flex flex-col gap-4">
                 <div className="text-4xl font-bold">
