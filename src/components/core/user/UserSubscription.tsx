@@ -5,7 +5,6 @@ import { formatDistanceToNow, format } from "date-fns";
 
 // Components
 import { Section } from "@/components/core/section/Section";
-// import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -17,14 +16,11 @@ import {
 import Plans from "@/components/marketing/plans/Plans";
 import { BadgeCheck } from "lucide-react";
 
-// For testing
-// import ServerSession from "@/components/ServerSession";
-
 export default async function UserSubscription() {
   const session = await getServerSession(authOptions);
 
   // Subscription data from Database
-  const subscription = session?.user?.subscriptions[1];
+  const subscription = session?.user?.subscriptions[0];
 
   // Customer data from Lemonsqueezy API
   // const customer_id = subscription?.customerId;
@@ -59,7 +55,6 @@ export default async function UserSubscription() {
                   {format(subscription.renewsAt, "MM/dd/yyyy 'at' HH:mm zzzz")}
                 </small>
               </p>
-              {/* <ServerSession /> */}
             </CardContent>
           </Card>
         ) : (
