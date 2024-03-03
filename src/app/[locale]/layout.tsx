@@ -1,6 +1,7 @@
 import { NextAuthProvider } from "@/components/core/provider/NextAuthProvider";
 import { Toaster } from "@/components/ui/sonner";
 import { poppins } from "@/lib/utils/fonts";
+import { Analytics } from "@vercel/analytics/react";
 
 import "@/styles/globals.css";
 
@@ -21,6 +22,7 @@ export default function LocaleLayout({
           {/* {modal} */}
           <Toaster position="top-center" richColors />
         </NextAuthProvider>
+        <Analytics />
       </body>
     </html>
   );
