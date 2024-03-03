@@ -32,11 +32,12 @@ export const POST = async (req: NextRequest) => {
     const eventName = payload.meta.event_name;
     const lemonSqueezyId = parseInt(payload.data.id);
 
-    let variant_id, userId, subscriptionData;
+    let variant_id, userId, customerId, subscriptionData;
 
     if (eventName === 'subscription_created' || eventName === 'subscription_updated' || eventName === 'subscription_cancelled' || eventName === 'order_created') {
       subscriptionData = payload.data.attributes as LemonsqueezySubscriptionAttributes;
       userId = payload.meta.custom_data ? payload.meta.custom_data.user_id.toString() : null;
+      customerId = subscriptionData.customer_id;
       variant_id = subscriptionData.first_subscription_item ? subscriptionData.variant_id : null;
     }
 
@@ -51,9 +52,11 @@ export const POST = async (req: NextRequest) => {
             endsAt: subscriptionData.ends_at ? new Date(subscriptionData.ends_at) : null,
             trialEndsAt: subscriptionData.trial_ends_at ? new Date(subscriptionData.trial_ends_at) : null,
             userId: userId,
+            customerId: customerId,
           },
           create: {
             lemonSqueezyId: lemonSqueezyId,
+            customerId: customerId,
             orderId: subscriptionData.order_id,
             name: subscriptionData.product_name,
             email: subscriptionData.user_email,

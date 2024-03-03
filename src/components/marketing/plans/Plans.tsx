@@ -20,7 +20,8 @@ export const Plans = async () => {
   // Get User
   const userId = session.user.id as string;
   const { user } = await getUserById(userId);
-  console.log("Firestarta User", user);
+  // console.log("Firestarta User", user);
+  // console.log("Lemon User", await ls.getUser());
 
   // Get Products (Subscriptions)
   const products = await ls.getProducts();

@@ -29,10 +29,10 @@ export async function POST(request) {
     },
     "product_options": {
       "enabled_variants": [res.variantId],
-      "redirect_url": `${process.env.NEXT_PUBLIC_SITE_URL}/pricing/`,
-      "receipt_link_url": `${process.env.NEXT_PUBLIC_SITE_URL}/pricing/`,
-      "receipt_button_text": "Go to your account",
-      "receipt_thank_you_note": "Thank you for signing up to Lemonstand!"
+      "redirect_url": `${process.env.NEXT_PUBLIC_SITE_URL}`,
+      "receipt_link_url": `${process.env.NEXT_PUBLIC_SITE_URL}`,
+      "receipt_button_text": "Go back",
+      "receipt_thank_you_note": "Thank you for signing up!"
     }
   }
 

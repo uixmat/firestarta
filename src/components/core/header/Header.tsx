@@ -40,6 +40,12 @@ export default async function Header() {
           >
             Users
           </Link>
+          <Link
+            href="/pricing"
+            className="transition-colors hover:text-foreground/80 text-foreground/60"
+          >
+            Pricing
+          </Link>
         </nav>
         <div className="relative flex items-center justify-between flex-1 gap-2 space-x-2 text-sm md:justify-end">
           {/* Sign In */}

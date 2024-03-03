@@ -26,6 +26,7 @@ model Subscription {
   isUsageBased       Boolean   @default(false)
   subscriptionItemId Int?      @unique
   user               User      @relation(fields: [userId], references: [id])
+  customerId         Int?
 
   @@index([lemonSqueezyId])
 }
