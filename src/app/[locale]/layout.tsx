@@ -11,7 +11,7 @@ export default function LocaleLayout({
   params: { locale },
 }: {
   children: React.ReactNode;
-  // modal: React.ReactNode; Breaks build
+  // modal: React.ReactNode;
   params: { locale: string };
 }) {
   return (
