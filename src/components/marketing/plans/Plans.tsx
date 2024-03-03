@@ -1,3 +1,5 @@
+import { authOptions } from "@/lib/auth";
+import { getServerSession } from "next-auth";
 import { getUserById } from "@/lib/prisma/users";
 import ls from "@/lib/lemonsqueezy";
 
@@ -13,11 +15,8 @@ import {
 import PlanButton from "./PlanButton";
 import { Button } from "@/components/ui/button";
 
-interface UserProps {
-  session: any;
-}
-
-export const Plans = async ({ session }: UserProps) => {
+export const Plans = async () => {
+  const session = await getServerSession(authOptions);
   // Get User
   const userId = session.user.id as string;
   const { user } = await getUserById(userId);
