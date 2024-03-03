@@ -24,7 +24,7 @@ export default async function UserSubscription() {
   const session = await getServerSession(authOptions);
 
   // Subscription data from Database
-  const subscription = session?.user?.subscriptions[0];
+  const subscription = session?.user?.subscriptions[1];
 
   // Customer data from Lemonsqueezy API
   // const customer_id = subscription?.customerId;
@@ -63,17 +63,7 @@ export default async function UserSubscription() {
             </CardContent>
           </Card>
         ) : (
-          <Card>
-            <CardHeader>
-              <CardTitle>Subscribe to Firestarta</CardTitle>
-              <CardDescription>
-                Get access to all the features Firestarta has to offer.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Plans />
-            </CardContent>
-          </Card>
+          <Plans />
         )}
       </Section>
     </>

@@ -42,7 +42,7 @@ export const Plans = async () => {
 
   return (
     <>
-      <div className="flex flex-col items-start justify-center max-w-4xl gap-6 p-4 mx-auto md:flex-row md:gap-12 md:p-6">
+      <div className="flex flex-col items-start justify-center max-w-4xl gap-6 mx-auto md:flex-row md:gap-12">
         {productsWithVariantIds.map((product) => {
           return (
             <Card
