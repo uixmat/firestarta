@@ -1,7 +1,9 @@
 import { Link } from "@/lib/intl/navigation";
 import { getUsers } from "@/lib/prisma/users";
+import { getInitials } from "@/lib/utils/initials";
 
 import { Section } from "@/components/core/section/Section";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Card,
   CardContent,
@@ -9,9 +11,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
-import { getInitials } from "@/lib/utils/initials";
 
 export async function UsersList() {
   const response = await getUsers();

@@ -41,7 +41,7 @@ const User = async ({ params }: PageProps) => {
       <Hero
         size="sm"
         title={user.name as string}
-        description={user?.jobTitle || "Unemployed"}
+        description={user?.jobTitle || "Firestarta"}
       />
       <div className="container max-w-lg pb-20">
         <Section>
