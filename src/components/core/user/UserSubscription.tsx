@@ -1,3 +1,4 @@
+import React, { Suspense } from "react";
 import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
 import { formatDistanceToNow, format } from "date-fns";
@@ -14,6 +15,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Plans from "@/components/marketing/plans/Plans";
+import Loading from "@/components/marketing/plans/loading";
+
+// Icons
 import { BadgeCheck } from "lucide-react";
 
 export default async function UserSubscription() {
@@ -58,7 +62,9 @@ export default async function UserSubscription() {
             </CardContent>
           </Card>
         ) : (
-          <Plans />
+          <Suspense fallback={<Loading />}>
+            <Plans />
+          </Suspense>
         )}
       </Section>
     </>
