@@ -29,7 +29,7 @@
     --secondary-foreground: 0 0% 98%;
     
     /* Muted backgrounds such as <TabsList />, <Skeleton /> and <Switch /> */
-    --muted: 240 3.7% 15.9%;
+    --muted: 250 25% 15%;
     --muted-foreground: 240 5% 64.9%;
     
     /* Used for accents such as hover effects on <DropdownMenuItem>, <SelectItem>...etc */

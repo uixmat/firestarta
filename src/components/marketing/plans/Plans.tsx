@@ -4,28 +4,21 @@ import { getUserById } from "@/lib/prisma/users";
 import ls from "@/lib/lemonsqueezy";
 
 // shadcn components
-import {
-  CardTitle,
-  CardDescription,
-  CardHeader,
-  CardContent,
-  Card,
-} from "@/components/ui/card";
+import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card";
 
 import PlanButton from "./PlanButton";
 import { Button } from "@/components/ui/button";
 
 export const Plans = async () => {
   const session = await getServerSession(authOptions);
-  // Get User
-  const userId = session.user.id as string;
-  const { user } = await getUserById(userId);
-  // console.log("Firestarta User", user);
-  // console.log("Lemon User", await ls.getUser());
 
-  // Get Products (Subscriptions)
+  let user = null;
+  if (session?.user?.id) {
+    user = await getUserById(session.user.id);
+  }
+
   const products = await ls.getProducts();
-  const subscription = null; // TODO; get subscription data and pass it to button
+  const subscription = null;
 
   const productsWithVariantIds = await Promise.all(
     products.data.map(async (product) => {
@@ -40,13 +33,17 @@ export const Plans = async () => {
     })
   );
 
+  // console.log(user);
+  const userSubscriptions = user && user.user ? user.user.subscriptions : null;
+  // console.log(userSubscriptions);
+
   return (
     <>
       <div className="flex flex-col items-start justify-center max-w-4xl gap-6 mx-auto md:flex-row md:gap-12">
         {productsWithVariantIds.map((product) => {
           return (
             <Card
-              className="flex-1"
+              className="flex-1 w-full"
               key={product.id}
               data-productid={product.id}
               data-variantid={product.variant_id}
@@ -60,7 +57,7 @@ export const Plans = async () => {
                 />
               </CardHeader>
               <CardContent className="flex flex-col gap-4">
-                <div className="text-4xl font-bold">
+                <div className="text-2xl font-bold">
                   {product.attributes.price_formatted}
                 </div>
                 <ul className="space-y-2 list-disc list-inside">
@@ -68,7 +65,7 @@ export const Plans = async () => {
                   <li>Unlimited Public Projects</li>
                   <li>Community Access</li>
                 </ul>
-                {user.subscriptions.length > 0 ? (
+                {userSubscriptions ? (
                   <Button>Manage Subscription</Button>
                 ) : (
                   <PlanButton plan={product} subscription={subscription} />
