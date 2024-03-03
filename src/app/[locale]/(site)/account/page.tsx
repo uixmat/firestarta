@@ -42,13 +42,10 @@ export default async function AccountPage() {
               <code className="text-xs">{session?.user?.id}</code>
             </CardDescription>
           </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <UserSubscription session={session} />
-            </div>
-          </CardContent>
         </Card>
       </Section>
+
+      <UserSubscription session={session} />
 
       <Section size="sm">
         <Card>

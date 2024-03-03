@@ -1,3 +1,4 @@
+import { getUserById } from "@/lib/prisma/users";
 import ls from "@/lib/lemonsqueezy";
 
 // shadcn components
@@ -10,10 +11,21 @@ import {
 } from "@/components/ui/card";
 
 import PlanButton from "./PlanButton";
+import { Button } from "@/components/ui/button";
 
-export const Plans = async () => {
+interface UserProps {
+  session: any;
+}
+
+export const Plans = async ({ session }: UserProps) => {
+  // Get User
+  const userId = session.user.id as string;
+  const { user } = await getUserById(userId);
+  console.log("Firestarta User", user);
+
+  // Get Products (Subscriptions)
   const products = await ls.getProducts();
-  const subscription = null; // TODO
+  const subscription = null; // TODO; get subscription data and pass it to button
 
   const productsWithVariantIds = await Promise.all(
     products.data.map(async (product) => {
@@ -58,7 +70,11 @@ export const Plans = async () => {
                   <li>Unlimited Public Projects</li>
                   <li>Community Access</li>
                 </ul>
-                <PlanButton plan={product} subscription={subscription} />
+                {user.subscriptions.length > 0 ? (
+                  <Button>Manage Subscription</Button>
+                ) : (
+                  <PlanButton plan={product} subscription={subscription} />
+                )}
               </CardContent>
             </Card>
           );

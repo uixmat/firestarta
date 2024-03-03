@@ -5,6 +5,7 @@ import prisma from "@/lib/prisma";
 
 interface CustomUser extends User {
   jobTitle?: string;
+  // Add subscriptions here and to the session
 }
 
 export const authOptions: NextAuthOptions = {
@@ -44,12 +45,25 @@ export const authOptions: NextAuthOptions = {
       }
       return token;
     },
+    // Custom Session
     async session({session, token}) {
       if (token?.userId) {
         (session.user as CustomUser).id = token.userId as string;
       }
       if (token?.jobTitle) {
         (session.user as CustomUser).jobTitle = token.jobTitle as string;
+      }
+      if (token?.userId) {
+        (session.user as CustomUser).id = token.userId as string;
+        // Fetch user with subscriptions
+        const userWithSubscriptions = await prisma.user.findUnique({
+          where: { id: token.userId as string },
+          include: {
+            subscriptions: true, // Include subscriptions in the result
+          },
+        });
+        // Add subscriptions to the session
+        (session.user as CustomUser).subscriptions = userWithSubscriptions?.subscriptions;
       }
       return session;
     },
