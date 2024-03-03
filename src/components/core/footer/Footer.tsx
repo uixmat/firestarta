@@ -54,7 +54,7 @@ export default async function Footer() {
               <ul className="flex flex-col gap-1">
                 <li>
                   <Link
-                    href="/users"
+                    href="/privacy"
                     title="Privacy"
                     className="text-indigo-300 hover:text-white"
                   >
