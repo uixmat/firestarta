@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import Plans from "@/components/marketing/plans/Plans";
-import Loading from "./loading";
+import Loading from "@/components/marketing/plans/loading";
 
 export default function Page() {
   return (
