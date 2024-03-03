@@ -1,4 +1,6 @@
+import React, { Suspense } from "react";
 import Plans from "@/components/marketing/plans/Plans";
+import Loading from "./loading";
 
 export default function Page() {
   return (
@@ -6,7 +8,9 @@ export default function Page() {
       <div className="w-full my-16 text-center">
         <h1 className="text-3xl font-bold text-white">Pricing</h1>
       </div>
-      <Plans />
+      <Suspense fallback={<Loading />}>
+        <Plans />
+      </Suspense>
     </div>
   );
 }

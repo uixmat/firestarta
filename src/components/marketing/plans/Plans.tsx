@@ -82,11 +82,6 @@ export const Plans = async () => {
       </div>
 
       <script src="https://app.lemonsqueezy.com/js/lemon.js" defer />
-
-      {/* Products object for testing */}
-      {/* <code className="text-xs">
-        <pre>{JSON.stringify(products.data, null, 2)}</pre>
-      </code> */}
     </>
   );
 };
