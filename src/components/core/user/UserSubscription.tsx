@@ -16,8 +16,8 @@ const lemonCustomer = ls.getCustomer({ id: 2428016 });
 
 export default async function UserSubscription() {
   // console.log("LEMON USER", await lemonUser);
-  console.log("LEMON CUSTOMER", await lemonCustomer);
   // console.log("LEMON CUSTOMERS", await lemonCustomers);
+  console.log("LEMON CUSTOMER", await lemonCustomer);
 
   return (
     <>
