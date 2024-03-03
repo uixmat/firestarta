@@ -48,7 +48,7 @@ This repository serves as a starting point (or boilerplate) for any Next.js SaaS
 - [ ] Cookies
 - [x] Internationalisation (Multi-lingual)
 - [ ] Custom errors
-- [ ] Loading states `loading.tsx`
+- [x] Loading states `loading.tsx`
 - [ ] Sitemap
 - [ ] Manifest
 - [ ] Blog
