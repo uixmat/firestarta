@@ -21,6 +21,7 @@ declare module 'next-auth' {
   }
 
   interface Subscription {
+    customerId: ReactNode;
     id: number;
     lemonSqueezyId: number;
     orderId: number;
