@@ -1,7 +1,9 @@
 import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
 import { Link } from "@/lib/intl/navigation";
+
 import { SignOutButton } from "./SignOutButton";
+import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -11,11 +13,13 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { UserRound, UserRoundCog } from "lucide-react";
-import { poppins } from "@/lib/utils/fonts";
-import Logo from "../brand/Logo";
-import { Button } from "@/components/ui/button";
 import Lang from "@/components/core/lang/Lang";
+import { UserRound, UserRoundCog } from "lucide-react";
+import Logo from "../brand/Logo";
+
+// Utils
+import { poppins } from "@/lib/utils/fonts";
+import { getInitials } from "@/lib/utils/initials";
 
 export default async function Header() {
   const session = await getServerSession(authOptions);
@@ -65,7 +69,9 @@ export default async function Header() {
               <DropdownMenuTrigger className="outline-none">
                 <Avatar className="w-8 h-8">
                   <AvatarImage src={session?.user?.image as string} />
-                  <AvatarFallback>CN</AvatarFallback>
+                  <AvatarFallback className="uppercase">
+                    {getInitials(session?.user?.name as string)}
+                  </AvatarFallback>
                 </Avatar>
               </DropdownMenuTrigger>
               <DropdownMenuContent
