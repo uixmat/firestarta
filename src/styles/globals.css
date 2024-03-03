@@ -43,9 +43,9 @@
     /* Default border color */
     --border: 245 42% 76%;
     /* Border color for inputs such as <Input />, <Select />, <Textarea /> */
-    --input: 240 3.7% 15.9%;
+    --input: 250 25% 15%;
     /* Used for focus ring */
-    --ring: 240 4.9% 83.9%;
+    --ring: 250 90% 60%;
 
     /* Border radius for card, input and buttons */
     --radius: 0.5rem;
